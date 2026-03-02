@@ -93,6 +93,6 @@ I will consistently use multi-factor authentication (MFA) and verify recipients 
 
 ---
 
-## 📌 Key Learning
+## Key Learning
 
 Data privacy is not only a technical responsibility but a behavioural one. Small, consistent security practices help protect user trust and company integrity.
