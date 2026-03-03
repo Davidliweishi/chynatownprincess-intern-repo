@@ -15,7 +15,7 @@
 
 Confidential data includes:
 
-- User account information (names, email addresses, login credentials)
+- Information from user accounts (names, email addresses, login credentials)
 - Usage and behavioural data
 - Internal documentation and product roadmaps
 - Business strategies and financial information
