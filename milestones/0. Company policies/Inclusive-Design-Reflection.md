@@ -26,4 +26,6 @@ routines and other functions.
 
 ## Identify one design or communication improvement that could make Focus Bear more accessible.
 
+I would consider a more minimalist/simple design for the onboarding interface. a neurdivergent person could potentially find this overstimulating, therefore it's better to have a less overwehlming starting point for them.
+
 In terms of one design change, I would consider a more minimalist design and interface.  
