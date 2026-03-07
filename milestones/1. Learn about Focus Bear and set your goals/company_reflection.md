@@ -1,4 +1,4 @@
-1️⃣ Understanding Focus Bear’s Mission & Vision
+Understanding Focus Bear’s Mission & Vision
 
 ## Why do you think Focus Bear was created?
 
