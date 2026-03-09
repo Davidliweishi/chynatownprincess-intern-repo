@@ -5,7 +5,7 @@
 What do you hope to learn from this internship?
 
 I'd like to learn what it actually feels like to contribute to a real product that real users depend on. At uni, projects have a clear start and end, but I want to experience the messier, ongoing nature of real software development — how teams prioritise features, handle bugs, and make technical decisions under constraints.
-
+ 
 Since I don't have backend experience, I'm also hoping to see that side of things — even just understanding how the frontend and backend connect will make me a more well-rounded developer. Mostly though, I want to find out where my gaps actually are, because I think you only discover those by doing the real thing.
 
 What skills are you most excited to develop?
