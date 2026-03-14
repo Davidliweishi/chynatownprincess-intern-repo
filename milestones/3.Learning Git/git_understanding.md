@@ -45,3 +45,43 @@ Overall, the task gave me a better understanding of how branching and merging wo
 
 Changes can be found in my repository named "desktop-tutorial" in my repositories section on Github:
 <img width="1512" height="763" alt="Screenshot 2026-03-07 at 9 26 41 am" src="https://github.com/user-attachments/assets/c2f04c7e-f970-4b1b-9c49-445dc49950e4" />
+
+
+✅ Tasks
+
+Create a new branch in your Git desktop client (e.g., GitHub Desktop, VS Code, SourceTree).
+
+<img width="719" height="395" alt="Image" src="https://github.com/user-attachments/assets/94e0ddf6-15ab-4583-9fd2-65b21d20baa3" />
+
+Make a small change in your repo and commit it to the new branch.
+
+<img width="1512" height="443" alt="Image" src="https://github.com/user-attachments/assets/79e0ca11-9e8d-445a-9266-968483d4b395" />
+
+Making a summary before commiting change:
+<img width="1512" height="982" alt="Image" src="https://github.com/user-attachments/assets/197c5267-8c1e-4df5-915e-bb6b22507664" />
+
+Switch back to main and check that your changes are not there.
+
+No changes on main, meaning changes are only pushed to the new branch:
+<img width="1512" height="982" alt="Image" src="https://github.com/user-attachments/assets/dc3dbf94-1b2c-43db-a06c-78c034e3c3a0" />
+
+Changes only appear on the new branch:
+<img width="1512" height="982" alt="Image" src="https://github.com/user-attachments/assets/159f5128-7b11-49f1-b7c3-19a7eb9bc57a" />
+
+## Reflect on why teams use branches instead of pushing directly to main in git_understanding.md:
+
+Why is pushing directly to main problematic?
+
+Direct pushes to main is problamatic for a number of reasons:
+
+1) No code review: this means there is no chance to for over team mates to review your code for bugs and issues - therefore, causing issues in the main codebase. We use pull requests and branching to avoid this.
+2) Cannot easily undo: reverting a bad commit on main after others have pulled it is messy. On a feature branch, you can rewrite history freely without impacting anyone.
+3) Hard to identify problems: if multiple people push a change and something breaks, it is very hard to identify and isolate the problem. Branches keeps the problem contained and easily traceable.
+
+How do branches help with reviewing code?
+
+It essentially helps isolate your code for review and scrutiny before it can be pushed into the main codebase. Rather than directly going into main, you have a chance to isolate, fix and polish your code beforehand. 
+
+What happens if two people edit the same file on different branches?
+
+A merge conflict would occur. It means Git won't be able to know which version of the file to push. Therefore, it would send a notification asking you to resolve the conflict before further commiting it. For example, it would ask you to manually edit the code, pick the correcti version and asks you to decide. 
