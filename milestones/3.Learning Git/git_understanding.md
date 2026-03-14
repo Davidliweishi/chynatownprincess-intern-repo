@@ -1,18 +1,39 @@
 ✅ Tasks
 
-Research git bisect and how it helps in debugging.
+## Research git bisect and how it helps in debugging.
 
-Create a test scenario:
+"git bisect" is a command that is used to idenitify a certain commit in a project's history that introduced  bug, issue or other unwanted changes into a coodebase. Its purpose is to significantly reduce the amount of commits a developer has to manually check. Therefore, it is appropriate for reducing time and effort in debugging and troubleshooting. 
+
+## Create a test scenario:
+
 Make a series of commits in your test repo.
+<img width="1512" height="968" alt="Image" src="https://github.com/user-attachments/assets/c1fdce14-257d-40ee-94d6-201fb2c354f4" />
+
 Introduce a bug in one of the commits.
-Use git bisect to track down the commit that introduced the issue.
+<img width="1512" height="968" alt="Image" src="https://github.com/user-attachments/assets/008f21e9-c92c-4bc1-a038-738562ceef26" />
 
-Experiment using your Git desktop client (or CLI if preferred).
 
-Write reflections in git_understanding.md:
-What does git bisect do?
-When would you use it in a real-world debugging situation?
-How does it compare to manually reviewing commits?
+Use git bisect to track down the commit that introduced the issue:
+
+<img width="1171" height="374" alt="Image" src="https://github.com/user-attachments/assets/60b963a7-800a-4c0b-90f3-e7aac48c250b" />
+
+## Experiment using your Git desktop client (or CLI if preferred).
+I've done this in VSC
+
+## Write reflections in git_understanding.md:
+
+## What does git bisect do?
+
+A Git tool used to help you find a specific commit in your project's history to find a bug, issue or unwanted change. 
+
+
+## When would you use it in a real-world debugging situation?
+
+An example of this can be debugging an unfamiliar codebase that isn't yours. when you are given a project that isn't yours to begin with, it can be hard to figure out the entire codebase. Therefore, using git bisect can help you pinpoint exactly where a change broke a specific behavior, allowing a developer to fix it.
+
+##How does it compare to manually reviewing commits?
+
+Git bisect is way more efficient and faster than manually reviewing commits. For example, rather than looking through 50 commits (which is a waste of time and energy), you can isolate a bug with just a command. Not only that, you can also automate the process ("git bisect run <script>") to run the entire search process that identifies good and bad lines of code. 
 
 
 ✅ Tasks
