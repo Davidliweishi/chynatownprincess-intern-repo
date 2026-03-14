@@ -3,3 +3,5 @@ line 2
 BUG
 line 4
 line 5
+testing staging
+staging changes and then commit
