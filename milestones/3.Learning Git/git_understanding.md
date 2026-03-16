@@ -22,10 +22,11 @@ Bad commit messages:
 - Poorly formatted: messages are either too long, use incorrect tense or uses improper capitalisation making code history hard to scan - e.g "ADDED NEW STUFF AND FIXED CHANGES FROM PAST ISSUES"( waay too long and all capitalised).
 
 Make three commits in your repo with different commit message styles:
-A vague commit message (e.g., "fixed stuff").
+A really vague commit message (e.g., "fixed stuff").
 
 
 An overly detailed commit message.
+
 A well-structured commit message.
 
 Write reflections in git_understanding.md:
