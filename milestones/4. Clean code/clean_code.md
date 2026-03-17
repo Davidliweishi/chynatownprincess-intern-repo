@@ -1,5 +1,46 @@
 ✅ Tasks
 
+## Research and summarize the following clean code principles in clean_code.md:
+
+## Simplicity – Keep code as simple as possible.
+
+Simplicity in terms of clean code is should follow the following principles:
+
+1) KISS - Keep it simple, stupid = write code that is simple and easy to read, whilst avoiding complicated language that may confuse other developers. 
+3) Focus on present coding - it is better to write code that focus on present codie, rather than any past or future scenerios.
+
+## Readability – Code should be easy to understand.
+
+Code is often read more than it actually is written. Therefore, it is better to focus on conciseness and cleverness.
+
+## Maintainability – Future developers (including you!) should be able to work with the code easily.
+
+Clean code should be easy to read, understand and change.maintain. This would reduce the possiblity of introducing bugs and issues should the code be amended and revisted. 
+
+## Consistency – Follow style guides and project conventions.
+
+Clean code should be consistent in style guides and project conventions, to keep uniformity with the rest of the projects. This helps codebase structures and code become predictable, avoid any confusion and reduce potential for error and bugs. 
+
+## Efficiency – Write performant, optimized code without premature over-engineering.
+
+Optimized, clean code creates efficieny by allowing for faster execution and minimilisation of resource utilisation. 
+
+## Find an example of messy code online (or write one yourself) and describe why it's difficult to read.
+
+
+The code is is sitting on multiple lines, with alot of nested logic. This makes it hard to digest what we are looking at. 
+<img width="1104" height="618" alt="Image" src="https://github.com/user-attachments/assets/4b6711dc-88ae-4499-9b9b-b6ea730b928a" />
+
+## Rewrite the code in a cleaner, more structured way.
+
+<img width="1104" height="618" alt="Image" src="https://github.com/user-attachments/assets/37e93068-b181-4634-9673-8e2ffbbe69c5" />
+the code is way more structured and legible. There are no nested logic and is minimalised to just two lines. Therefore, it makes it easier to read and more efficient. 
+
+## Commit and push your changes to GitHub.
+
+
+✅ Tasks
+
 ## Research best practices for naming variables and functions.
 
 Best practises for naming variables and functions:
