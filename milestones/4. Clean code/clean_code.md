@@ -50,4 +50,40 @@ Poorly named variables can cause confusion and lack of clarity in a codebase, be
 
 It allowed for me to not only understand my own code better, but also gives more clarity in terms of what purpose and where my variables and functions are serving in my codebase. 
 
+
+📌 Writing Small, Focused Functions
+🎯 Goal
+Learn how to break down large functions into smaller, more maintainable units.
+
+✅ Tasks
+
+## Research best practices for writing small, single-purpose functions.
+
+1) Single Responsibility Priciple (SRP): a function should explain exactly its purpose and only fulfill that purpose.
+2) Keep the function small: this way its more managable, keep it 20-30 lines max.
+3) Descriptive naming: Function names should describe exaclt whay they do and often need to be verb-noun pairing (e.g "calculateTotal").
+4) Minimal Parameters: Functions should keep parameters to one or two arguments.
+
+## Find an example of a long, complex function in an existing codebase (or write your own).
+
+<img width="980" height="559" alt="Image" src="https://github.com/user-attachments/assets/d6037414-3f94-47f2-b49d-0a947540e9c4" />
+
+
+## Refactor it into multiple smaller functions with clear responsibilities.
+
+<img width="1308" height="605" alt="Image" src="https://github.com/user-attachments/assets/2b6f3679-af15-4287-9887-cd6a9059b6f2" />
+
+## Write reflections in clean_code.md:
+##Why is breaking down functions beneficial?
+
+1) It helps debugging if you should come across one and want to pinpoint exactly where it went wrong.
+2) It helps create more readable, easily maintained code.
+3) It allows code blocks to be potentially reused elsewhere (if needed).
+   
+##How did refactoring improve the structure of the code?
+
+It helps maintain the structure and efficiency of your code without changing its functionality. It helps make your code more easy to maintain by breaking down complex, large codebases that can be easily read and maintained. 
+
+Commit and push your changes to GitHub.
+
 Commit and push your changes to GitHub.
