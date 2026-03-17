@@ -127,4 +127,42 @@ It helps maintain the structure and efficiency of your code without changing its
 
 Commit and push your changes to GitHub.
 
+
+📌 Avoiding Code Duplication
+🎯 Goal
+## Understand how to identify and eliminate unnecessary duplication in code.
+
+✅ Tasks
+
+## Research the "Don't Repeat Yourself" (DRY) principle.
+
+DRY principle was formulated by Andy Hunt and Dave Thomas, which aims to reduce software redundancy, encoruage code maintainability, reusability and readability by making sure that changes only need to be made in one central location. 
+
+The key aspects of DRY are:
+
+1) Single source of truth - all aspects of software and code should not be duplicated.
+2) Beyond code - DRY principle should apply to everything software related (e.g documentation), not just code.
+3) Over-application - overuse of the DRY principle can lead to unwanted complexity. Therefore, making code harder to understand. 
+
+## Find a section of code in your test repo with unnecessary repetition.
+
+<img width="1247" height="623" alt="Screenshot 2026-03-17 at 8 51 46 pm" src="https://github.com/user-attachments/assets/f1ffcf3b-4993-4852-beef-20341dcbf896" />
+Both methods essentially perform the same function. Only difference is the field and message. 
+
+## Refactor the code to eliminate duplication.
+
+<img width="1135" height="664" alt="Screenshot 2026-03-17 at 8 55 45 pm" src="https://github.com/user-attachments/assets/8a1e2c87-ebdc-490b-b207-13a5fb91a7c2" />
+Combined the function of both methods into one - "Search and display", with the original methods "read_in_genre" and "read_in_title" as thin wrappers around it.
+
+
+## Write reflections in clean_code.md:
+
+## What were the issues with duplicated code?
+
+Duplicate code makes a codebase and software less efficient and more complicated than it needs to be. It makes it harder/tedious to read and debug, due to semi-identical code that can confuse developers. Therefore, its better to try and condense and use single, unique code that serves one particular purpose, rather than multiple that shares similar purpose. 
+
+## How did refactoring improve maintainability?
+
+It helps make a code strcture more efficient and easier to understand/read, all without sacrifacing its function. It reduces technical debt (the potential for future reworking), therefore allowing for easier and better maintainability. 
+
 Commit and push your changes to GitHub.
