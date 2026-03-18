@@ -41,13 +41,37 @@ Good:
 
 ## Large Classes (God Objects) – Classes that handle too many responsibilities.
 
-Bad 
+Bad:
+<img width="808" height="237" alt="Screenshot 2026-03-18 at 4 04 27 pm" src="https://github.com/user-attachments/assets/e64f42a7-e7b9-4125-810b-295aeab1be33" />
 
-Deeply Nested Conditionals – Complex if/else trees that make code harder to follow.
-Commented-Out Code – Unused code that clutters the codebase.
-Inconsistent Naming – Variable names that don't clearly describe their purpose.
+
+Good:
+<img width="808" height="344" alt="Screenshot 2026-03-18 at 4 05 33 pm" src="https://github.com/user-attachments/assets/fc50d6fc-c55c-4f29-b23e-2c83b4b5c3c2" />
+
+
+## Deeply Nested Conditionals – Complex if/else trees that make code harder to follow.
+
+Bad: 
+<img width="808" height="344" alt="Screenshot 2026-03-18 at 4 15 41 pm" src="https://github.com/user-attachments/assets/120e4c1d-ba25-47fc-9248-3f58fec91e70" />
+
+Good: 
+<img width="808" height="344" alt="Screenshot 2026-03-18 at 4 19 01 pm" src="https://github.com/user-attachments/assets/11ff024f-9873-4713-aa64-b9474f6f8935" />
+
+
+## Commented-Out Code – Unused code that clutters the codebase.
+
+Bad:
+<img width="808" height="300" alt="Screenshot 2026-03-18 at 4 21 32 pm" src="https://github.com/user-attachments/assets/78ec1a7a-7801-43d9-a24c-0c0786992b2c" />
+
+Good:
+<img width="808" height="300" alt="Screenshot 2026-03-18 at 4 21 59 pm" src="https://github.com/user-attachments/assets/976198b4-4b4f-4349-bdec-148d5d70e8fa" />
+
+
+## Inconsistent Naming – Variable names that don't clearly describe their purpose.
 
 ## Refactor the code to eliminate these code smells.
+
+I've put side by side comparison in the above section. 
 
 
 ## Write reflections in code_smells.md:
@@ -57,3 +81,4 @@ How did refactoring improve the readability and maintainability of the code?
 How can avoiding code smells make future debugging easier?
 
 Commit and push your changes to GitHub.
+simp
