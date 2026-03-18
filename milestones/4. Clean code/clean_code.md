@@ -1,4 +1,4 @@
-✅ Tasks
+1) ✅ Tasks
 
 ## Research and summarize the following clean code principles in clean_code.md:
 
@@ -39,7 +39,7 @@ the code is way more structured and legible. There are no nested logic and is mi
 ## Commit and push your changes to GitHub.
 
 
-✅ Tasks
+2) ✅ Tasks
 
 ## Research best practices for naming variables and functions.
 
@@ -92,7 +92,7 @@ Poorly named variables can cause confusion and lack of clarity in a codebase, be
 It allowed for me to not only understand my own code better, but also gives more clarity in terms of what purpose and where my variables and functions are serving in my codebase. 
 
 
-📌 Writing Small, Focused Functions
+3) 📌 Writing Small, Focused Functions
 🎯 Goal
 Learn how to break down large functions into smaller, more maintainable units.
 
@@ -128,7 +128,7 @@ It helps maintain the structure and efficiency of your code without changing its
 Commit and push your changes to GitHub.
 
 
-📌 Avoiding Code Duplication
+4) 📌 Avoiding Code Duplication
 🎯 Goal
 ## Understand how to identify and eliminate unnecessary duplication in code.
 
@@ -168,7 +168,7 @@ It helps make a code strcture more efficient and easier to understand/read, all 
 Commit and push your changes to GitHub.
 
 
-📌 Commenting & Documentation
+5) 📌 Commenting & Documentation
 🎯 Goal
 ## Learn when and how to write helpful comments and documentation.
 
@@ -210,6 +210,77 @@ I've changed it to describe and explain more interesting and unusual aspects of 
 1) When the code is clear to understand and is self-documented. THis means that the functions, variables and classes are self-explanatory.
 
 2) When you use comments to explain what the code is doing, rather than why you've used it. 
+
+Commit and push your changes to GitHub.
+
+
+6) 📌 Handling Errors & Edge Cases
+🎯 Goal
+## Learn how to write robust code that gracefully handles errors and unexpected inputs.
+
+✅ Tasks
+
+## Research strategies for handling errors and edge cases in code (include Guard Clauses).
+
+Writing robust code often centeres around real exception handling:
+1) Anticipate possible failures
+2) Catching exceptions at the right level
+3) Logging with full context
+4) Providing recovery or fallback options
+5) Centralising error handling for consistency
+
+Common strategies to handle errors and edge cases in code
+
+Anticipate Edge cases:
+
+Edge cases are rare but unexpected situations happening at the max, min or boundary parameters of a system's operation. Edge cases deal with the "what if" situations - like empty inputs, massive data or unusual user behaviors that can result in software crashes, security risks or logical errors if not handled properly.
+
+Strategies:
+1) Check boundaries: Spot the minimum and maximum constraints
+2) Test EmptyNull values: Always test what happens when data is missing.
+3) User behavior: look at users who try unusual paths, like clikcing buttons twice or navigating back in unexpected ways.
+4) Use automated testing: create specific, automated tests for these boundary conditions.
+
+Error Handling:
+
+Error handling often involve anticipating, detecting and resolving exceptional conditions that occur during a program run to prevent crashes, bugs and ensure smooth user experience. 
+
+Strategies:
+1) Exceptions (try/Catch/Finally): Modern programming languages have commands that isolate error-prone code (like 'try', 'catch', and 'finally' blocks) to let developers manage errors, prevent crashes.
+
+For example: 
+1) Throwing (throw) - tell sus that an error has occured. stopping normal functions and passing controls to a handler.
+2) Catching (catch) - Defines a block of code to handle specific exceptions thrown in a 'try' block.
+3) finally - runs a code regardless of whether an exception was thrown, commonly used for cleanup taks like clsoing files.
+4) Hierachy - exceptions are often organised in a hierarchy, allowing specific handling for derived exceptions. 
+
+2) Fail Fast: Use guard clauses to check required conditions at the beginning of a function, allowing a program to fail immediately and vividly, rather than allow it to carry on with issues.
+
+3) Graceful Degradation: Enable a system, to maintain partial functionality and operations, rather than let it crash completely.
+
+4) Return Explicit Errors: Return explicit error objects for easier debugging and testing. 
+Find an existing function that doesn’t properly handle errors or invalid inputs.
+
+## Find an existing function that doesn’t properly handle errors or invalid inputs.
+
+<img width="639" height="162" alt="Screenshot 2026-03-18 at 1 48 27 pm" src="https://github.com/user-attachments/assets/7c3c2492-cda4-4a5b-9a9c-3646b4be0ced" />
+
+<img width="639" height="107" alt="Screenshot 2026-03-18 at 1 49 45 pm" src="https://github.com/user-attachments/assets/d79125d4-d81d-4119-b518-936f4de34dd7" />
+
+## Refactor the function to improve error handling.
+
+<img width="639" height="107" alt="Screenshot 2026-03-18 at 1 53 59 pm" src="https://github.com/user-attachments/assets/89846413-792f-4035-9507-ec827bf90671" />
+
+
+## Write reflections in clean_code.md:
+
+## What was the issue with the original code?
+
+The second line in the original code block will raise a "NoMethodError" because you cannot call "downcase" on a 'nil' value. Therefore, I've put an "if" statement to include print "downcase" output, only if there is "user_data" selected. 
+
+## How does handling errors improve reliability?
+
+Handling errors help improve reliability by preventing unexpected errors, allowing graceful system recoveryn ensuring data integrity, and allow developers to isolate and identify issues/bugs; allowing it to crash early on to prevent issues from carryinng on into later stages. 
 
 Commit and push your changes to GitHub.
 
