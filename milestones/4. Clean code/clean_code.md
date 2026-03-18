@@ -166,3 +166,52 @@ Duplicate code makes a codebase and software less efficient and more complicated
 It helps make a code strcture more efficient and easier to understand/read, all without sacrifacing its function. It reduces technical debt (the potential for future reworking), therefore allowing for easier and better maintainability. 
 
 Commit and push your changes to GitHub.
+
+
+📌 Commenting & Documentation
+🎯 Goal
+## Learn when and how to write helpful comments and documentation.
+
+✅ Tasks
+
+## Research best practices for writing comments and documentation.
+
+Helpful comments and documentation mostly focuses on the reason and 'why' of explainations, rather than the 'what'. 
+
+Good comments are often concise, constantly updated, properly named (''calculateTotal' instead of 'calc'), and describes in detail about the purpose of the code than just repeating the logic. 
+
+Good documentation are often include a "README.md" file that includes a rbief project description, installation instructions and a usage example. It tailors technical details for developers and high-level summaries for managers and users. It also has good, clear structure that makes it easy to navigate. Sometimes it can even include diagrams and charts to explain concepts. 
+
+## Find an example of poorly commented code and rewrite the comments to be more useful.
+
+This is my code comments before:
+
+<img width="805" height="369" alt="Screenshot 2026-03-18 at 12 20 06 pm" src="https://github.com/user-attachments/assets/5746a094-07a5-4a14-99b6-6a47120421c0" />
+
+It is only describing what the code is doing, rather than the reason we are using it. 
+
+This is my code comments after:
+
+<img width="805" height="328" alt="Screenshot 2026-03-18 at 12 31 20 pm" src="https://github.com/user-attachments/assets/12dfff63-4365-435b-8232-c73ff1d17d2c" />
+
+I've changed it to describe and explain more interesting and unusual aspects of the code. In this case, the global variable "$albums". I'm describing why I'm using it: to access an Array of album names. 
+
+## Write reflections in clean_code.md:
+
+## When should you add comments?
+
+1) When you are trying to add context and intent, rather than describing what the code is doing.
+2) When you are documenting complex code blocks.
+3) When you have incomplete code. For example, "TODO" or "FIXME" to mark code that requires further work.
+4) If you have external references like sources or links.
+   
+## When should you avoid comments and instead improve the code?
+
+1) When the code is clear to understand and is self-documented. THis means that the functions, variables and classes are self-explanatory.
+
+2) When you use comments to explain what the code is doing, rather than why you've used it. 
+
+Commit and push your changes to GitHub.
+
+
+
