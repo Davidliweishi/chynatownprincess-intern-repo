@@ -286,3 +286,35 @@ Commit and push your changes to GitHub.
 
 
 
+7) ✅ Tasks
+
+## Research common refactoring techniques.
+
+1) Extract Method - turns a code fragment into its own method with a descriptive name, replacing the need to call from the original code to this new method. It helps reduce code repetition, improve readability and maintainability by breaking down long, complex code into more managable chunks.
+
+2) Raname Variables and Methods - having descriptive, concise names for variables and functions, allow them to clearly convey their purpose and functionality without being too long. It also allows for more consistent coding standards across a code base.
+
+3) Simplify conditional expressions - reduces cognative overload (mental fatigue) by replacing long, nested 'ifelse' logic with shorter alternatives like '&&' or '||'.
+
+4) Introduce code parameters - use classes or structures that encapsulate multiple related parameters into a single object. Therefore, grouping similiar methods together and allowing for code organisation. 
+
+## Find an example of overly complicated code in an existing project (or write your own).
+
+<img width="639" height="314" alt="Screenshot 2026-03-18 at 2 31 08 pm" src="https://github.com/user-attachments/assets/7c76b02c-1439-49f2-a42d-2fd7ddbfbaea" />
+
+## Refactor it to make it simpler and more readable.
+
+I've decided to condense the above code block to avoid repetition and improve efficiency:
+<img width="735" height="235" alt="Screenshot 2026-03-18 at 2 48 02 pm" src="https://github.com/user-attachments/assets/a59e8cf1-d1d4-4d2c-b1a7-e1210c92de5d" />
+
+## Write reflections in clean_code.md:
+
+What made the original code complex?
+
+There were too many methods that served a similar purpose. for '/search/title' and /search/genre', they both were meant to access a route to get data for both book titles and genres. However, this is unnecessary, and makes the code less efficient by duplicating code. 
+
+How did refactoring improve it?
+
+It condensed both methods into one, therefore eliminating the need to write a method for both title and genre. Both routes share an identical pattern, but with a different output, so its better to elimiate the initial setup and just render the output. 
+
+Commit and push your changes to GitHub.
