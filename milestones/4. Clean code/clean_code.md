@@ -352,5 +352,56 @@ What issues did you find while testing?
 
 For my "Week3-Lab.cs" there was a missing semi-colon (;). Hence the above error came up.
 
+## 9) Code Formatting & Style Guides
 
+## ✅ Tasks
+
+## Research the importance of consistent code style.
+
+## Review the Airbnb javascript style guide.
+
+This is the link I used to research:
+https://medium.com/free-code-camp/adding-some-air-to-the-airbnb-style-guide-3df40e31c57a
+
+Install and configure ESLint and Prettier in your development environment.
+
+ESLint: 
+<img width="973" height="119" alt="Screenshot 2026-03-20 at 5 01 49 pm" src="https://github.com/user-attachments/assets/2f98ab92-d400-4af0-9992-8fe27d58e47c" />
+
+Prettier:
+<img width="973" height="119" alt="Screenshot 2026-03-20 at 5 03 26 pm" src="https://github.com/user-attachments/assets/91f29871-b85e-47c8-af6b-12cff1fa9736" />
+
+Run the formatter and linter on your codebase and fix any issues.
+
+Prettier:
+
+Before:
+<img width="973" height="515" alt="Screenshot 2026-03-20 at 5 08 15 pm" src="https://github.com/user-attachments/assets/5ca46281-bf1b-4b29-99bf-7010be2b54fa" />
+
+After:
+<img width="973" height="515" alt="Screenshot 2026-03-20 at 5 08 49 pm" src="https://github.com/user-attachments/assets/af7269f5-45fd-434d-a843-503cb00bcb21" />
+There is proper spacing after the comma.
+
+ESLint:
+
+Before:
+<img width="1166" height="820" alt="Screenshot 2026-03-20 at 5 31 26 pm" src="https://github.com/user-attachments/assets/9576304f-31ea-410f-a792-2724cf7e36cd" />
+
+After:
+<img width="1166" height="889" alt="Screenshot 2026-03-20 at 5 32 01 pm" src="https://github.com/user-attachments/assets/f5d31a23-a179-4479-91a4-770b3701254c" />
+
+
+## Write reflections in clean_code.md:
+
+## Why is code formatting important?
+
+It is important as it enhances readability, maintainability and collaboration. It also helps reduce cognitive overload, as it can cause developers to become confused due to messy code. It is better to have code that conforms with a style, as this helps it seem more predicatable and consistent throughout a codebase. 
+
+What issues did the linter detect?
+
+It detected a function called "sayHelloLinting" that was assigned a value, but it was never called. Therfore I had to make sure it was called properly at the bottom of the code. 
+
+Did formatting the code make it easier to read?
+
+Some of them yes. There were a few that didn't quite make sense to me, but I think this is just a matter of getting used to the conventional formatting, rather than my own habits. 
 
