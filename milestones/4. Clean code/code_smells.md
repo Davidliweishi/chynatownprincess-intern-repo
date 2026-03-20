@@ -2,7 +2,7 @@
 🎯 Goal
 ## Learn how to recognize common code smells and refactor them for better readability, maintainability, and performance.
 
-✅ Tasks
+## ✅ Tasks
 
 ## Research common code smells and how they impact code quality.
 
@@ -69,16 +69,32 @@ Good:
 
 ## Inconsistent Naming – Variable names that don't clearly describe their purpose.
 
+Bad:
+<img width="763" height="88" alt="Screenshot 2026-03-20 at 4 15 02 pm" src="https://github.com/user-attachments/assets/371b2601-8745-42fe-a256-dc84043666c8" />
+
+Good:
+<img width="763" height="88" alt="Screenshot 2026-03-20 at 4 16 40 pm" src="https://github.com/user-attachments/assets/5ed48e25-52af-4b70-8419-a75d50ba9ca2" />
+
+
 ## Refactor the code to eliminate these code smells.
+
+
 
 I've put side by side comparison in the above section. 
 
-
 ## Write reflections in code_smells.md:
 
-What code smells did you find in your code?
+What code smells did you find in your code? 
+
+I found inconsistent naming, and deeply nested conditional in some of my code base. ALthough they were from my beginner projects, I now realised that there are more efficient and clear ways to write my code - particularly for eliminating the mentioned code smells. 
+
 How did refactoring improve the readability and maintainability of the code?
+
+It makes it more concise and efficient, I found that rather than manually placing similiar code for something like arrays, it's easier and more professional to define a variable in the beginning of my code, and then reuse it all throughout. This way, it makes my work interchangable, easy to maintain and better for potential debugs and troubleshooting. 
+
 How can avoiding code smells make future debugging easier?
 
+We can regularly check for refactoring at the end of typing our code, using automated code review tools and allowing your team mates to proofread your work. This way you have multiple ways to adhere to coding standards that are consistent with your company and work expectations. 
+
 Commit and push your changes to GitHub.
-simp
+
