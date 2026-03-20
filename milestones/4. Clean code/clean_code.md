@@ -318,3 +318,39 @@ How did refactoring improve it?
 It condensed both methods into one, therefore eliminating the need to write a method for both title and genre. Both routes share an identical pattern, but with a different output, so its better to elimiate the initial setup and just render the output. 
 
 Commit and push your changes to GitHub.
+
+## 8) 📌 Writing Unit Tests for Clean Code
+🎯 Goal
+## Learn how writing unit tests helps maintain clean and reliable code.
+
+## ✅ Tasks
+
+## Research the importance of unit testing in software development.
+
+## Choose a testing framework (e.g., Jest for JavaScript, PyTest for Python).
+
+I'm currently using NUnit for C# in my university paper Object Orientated Programming:
+
+<img width="866" height="658" alt="Screenshot 2026-03-20 at 4 35 35 pm" src="https://github.com/user-attachments/assets/86bc60f0-9a94-4a51-9c2f-9ebc2be674e0" />
+
+## Write a few unit tests for a function in your test repo.
+
+<img width="866" height="763" alt="Screenshot 2026-03-20 at 4 31 17 pm" src="https://github.com/user-attachments/assets/bc9a802d-650e-40b1-a042-9788c00dffc5" />
+
+
+## Write reflections in clean_code.md:
+
+## How do unit tests help keep code clean?
+
+What is unit testing?
+
+Individual code components being tested in isolation to confirm if they work. They are vital to ensure early bug detection, improve code quality, and facilitate refactoring. All of this is for the purpose of better maintainability and less risk of technical debt. 
+
+What issues did you find while testing?
+
+<img width="973" height="119" alt="Screenshot 2026-03-20 at 4 38 37 pm" src="https://github.com/user-attachments/assets/1b9c4938-99be-4111-b94a-0a93eea9b96e" />
+
+For my "Week3-Lab.cs" there was a missing semi-colon (;). Hence the above error came up.
+
+
+
