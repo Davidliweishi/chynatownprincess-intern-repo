@@ -9,15 +9,15 @@
 
 ## Research what Docker is and how it differs from virtual machines
 
-Docker is an open-source platform that uses operating system level virtualization to package applications and their dependencies into islated units called "containers".
+Docker is an open-source platform that uses operating system level virtualization to package applications and their dependencies into isolated units called "containers".
 
 ## Understand the benefits of using Docker in a backend development environment
 
-Environmental consistency: Docker containers can encapsulate your code, runtime, system tools to run identically on a developer's laptop, testing einvornments and production servers. 
+Environmental consistency: Docker containers can encapsulate your code, runtime, system tools to run identically on a developer's laptop, testing environments and production servers. 
 
 Quick and easy setup: New developers can be onboarded quickly and create projects in minutes. 
 
-Isolation of conflict: Each container runs in an isolated environment, preventing conflicts between differn applications and services. 
+Isolation of conflict: Each container runs in an isolated environment, preventing conflicts between different applications and services. 
 
 Explore how containers help maintain consistency across different environments
 
@@ -29,7 +29,7 @@ The main difference is the architecture of both processes. Virtual machines virt
 
 ## Why is containerization useful for a backend like Focus Bear’s?
 
-1) Consistency across environments allow code to run idenitically on a developer's computer, in CI/CD pipelines and in production. 
+1) Consistency across environments allow code to run identically on a developer's computer, in CI/CD pipelines and in production. 
 
 2) Simplified dependency management allows each service to bundle its own runtime, libraries and configuration. No conflicts between services that need different versions of the same dependency. 
 
