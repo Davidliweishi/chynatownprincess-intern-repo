@@ -2,7 +2,7 @@
 
 ## Research the difference between staging and committing.
 
-Staging prepares specific changes to be included in commit, you can think of it like drafting code. Commiting permanently records those changes into the local repository history. Essentially, staging is drafting the code before commiting. Whereas commiting is finalising code to a code base. 
+Staging prepares specific changes to be included in commit, you can think of it like drafting code. Committing permanently records those changes into the local repository history. Essentially, staging is drafting the code before committing. Whereas committing is finalising code to a code base. 
 
 
 ## Experiment with adding and committing files in your repo using either:
@@ -34,29 +34,25 @@ Commit the file and observe the difference.
 
 What is the difference between staging and committing?
 
-Staging is the setp where you prepare and que changes for your next commit. You can add or remove files from the staging area frrely without anything saved in your project history yet. Commiting is making the changes permanent - sealing it into Git's history with a message and timestamp - therefore, becoming a part of the repo's history permanently. 
+Staging is the setup where you prepare and que changes for your next commit. You can add or remove files from the staging area freely without anything saved in your project history yet. committing is making the changes permanent - sealing it into Git's history with a message and timestamp - therefore, becoming a part of the repo's history permanently. 
 
 Why does Git separate these two steps?
-Git seperates them to give you more control and precision over what goes into each commit. Without staging, every change will automatically become a commit - which makes it confusing and hard to read. Staging allows you to group changes together into one commit. For example, you might have fixed a bug in one file and updated something in another - staging allows you to commit both of these seperately with clear and unique messages. 
+Git separates them to give you more control and precision over what goes into each commit. Without staging, every change will automatically become a commit - which makes it confusing and hard to read. Staging allows you to group changes together into one commit. For example, you might have fixed a bug in one file and updated something in another - staging allows you to commit both of these separately with clear and unique messages. 
 
 When would you want to stage changes without committing?
 
 1) You made changes to multiple files but only want to commit one as of now.
 2) You want to review changes carefully before deciding to make them permanent.
-3) You're halfway through a project and want to check your work without commiting incomplete code.
+3) You're halfway through a project and want to check your work without committing incomplete code.
 4) You want to split your work into multiple small, more meaningful commits rather than a large messy one.
 
 Commit and push your changes to GitHub.
-
-
-
-
 
 ✅ Tasks
 
 ## Research git bisect and how it helps in debugging.
 
-"git bisect" is a command that is used to idenitify a certain commit in a project's history that introduced  bug, issue or other unwanted changes into a coodebase. Its purpose is to significantly reduce the amount of commits a developer has to manually check. Therefore, it is appropriate for reducing time and effort in debugging and troubleshooting. 
+"git bisect" is a command that is used to identify a certain commit in a project's history that introduced  bug, issue or other unwanted changes into a codebase. Its purpose is to significantly reduce the amount of commits a developer has to manually check. Therefore, it is appropriate for reducing time and effort in debugging and troubleshooting. 
 
 ## Create a test scenario:
 
@@ -89,6 +85,44 @@ An example of this can be debugging an unfamiliar codebase that isn't yours. whe
 
 Git bisect is way more efficient and faster than manually reviewing commits. For example, rather than looking through 50 commits (which is a waste of time and energy), you can isolate a bug with just a command. Not only that, you can also automate the process ("git bisect run <script>") to run the entire search process that identifies good and bad lines of code. 
 
+## Research the following Git commands and test them in your repo:
+
+git checkout main -- <file> – Restore a specific file from main without affecting other changes.
+git cherry-pick <commit> – Apply a specific commit from another branch without merging the whole branch.
+git log – View commit history and understand how changes evolved.
+git blame <file> – See who last modified each line in a file and when.
+
+## Experiment with each command in your test repo:
+
+Modify a file, then restore it using checkout.
+Commit changes on a branch, then cherry-pick one commit onto main.
+Use git log to explore the commit history.
+Use git blame to see past changes in a file.
+
+## Write reflections in git_understanding.md:
+
+## What does each command do?
+
+1) git log - describe what you saw when you ran it
+2) git blame — describe what it showed you about the file
+3) git checkout main -- <file> — describe what happened to the file
+4) git cherry-pick — describe what it did to your branch
+
+When would you use it in a real project (hint: these are all really important in long running projects with multiple developers)?
+
+1) git log — when you are trying to figure out when a bug was introduced. You'd scroll through the history to find the exact commit that broke something.
+
+2) git blame — when a line of code is causing a crash. You'd use this to find out who wrote it and when, so you can ask them why they did it that way.
+
+3) git checkout main -- file — when you've been editing a file and completely messed it up. You'd use this to restore just that one file without losing all your other work.
+
+4) git cherry-pick — when your teammate fixed a critical bug on their feature branch but it's not ready to merge yet. You'd cherry-pick just that bug fix commit onto main without bringing in all their unfinished work.
+
+
+## What surprised you while testing these commands?
+
+If a teammate fixed an important bug on their branch but their branch isn't ready to merge, I could use git cherry-pick to apply just that one fix to main without merging all their other unfinished changes.
+
 
 ✅ Tasks
 
@@ -100,7 +134,7 @@ Good commit messages:
 
 - Concise and imperative: e.g "fix bug"
 - Limits the subject line to 50 characters
-- Caplitalizes the subject line 
+- Capitalises the subject line 
 - Does not end the line with a period (.)
 - Uses the body to explain what and why changes were ade, not how.
 - Wraps the body at 72 characters. 
@@ -111,7 +145,7 @@ Bad commit messages:
 - Vague and lacks context: e.g "fix"
 - Emotionally driven writing: "It works!"
 - Duplicates information: repeats code changes from a previous commit and forces users to check manually - e.g "Fix BUG-9284"
-- Poorly formatted: messages are either too long, use incorrect tense or uses improper capitalisation making code history hard to scan - e.g "ADDED NEW STUFF AND FIXED CHANGES FROM PAST ISSUES"( waay too long and all capitalised).
+- Poorly formatted: messages are either too long, use incorrect tense or uses improper capitalisation making code history hard to scan - e.g "ADDED NEW STUFF AND FIXED CHANGES FROM PAST ISSUES"( way too long and all capitalised).
 
 Make three commits in your repo with different commit message styles:
 A really vague commit message (e.g., "fixed stuff").
