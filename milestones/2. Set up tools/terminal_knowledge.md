@@ -11,4 +11,4 @@ I've made no customisations so far as I'm still learning its basic features.
 
 ## What was the most useful command you learned today?
 
-Instant Reply - it allows me to back track code that I have deleted. 
+Although I've leanred a few basic commands, the most useful is the ability to step back in time to see past screen contents with Cmd + Option + B
