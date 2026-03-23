@@ -1,0 +1,29 @@
+{
+  "name": "chynatownprincess-intern-repo",
+  "version": "1.0.0",
+  "description": "Hello World!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Davidliweishi/chynatownprincess-intern-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Davidliweishi/chynatownprincess-intern-repo/issues"
+  },
+  "homepage": "https://github.com/Davidliweishi/chynatownprincess-intern-repo#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0"
+  },
+  "lint-staged": {
+  "**/*.md": "markdownlint-cli2"
+  } 
+}

@@ -6,8 +6,8 @@
 
 ## Research what CI/CD is and why it’s used in software development.
 
-CI = Conitinious intergration 
-CD = Continious Delivery 
+CI = Continuous integration 
+CD = Continuous Delivery 
 
 Both are vital for software development as they help process, test and deploy code.
 
@@ -26,8 +26,10 @@ cspell.json - spell checker for technical writing and code:
 
 
 ## Experiment with Git Hooks (e.g., Husky) to enforce linting before commits.
+<img width="853" height="150" alt="Image" src="https://github.com/user-attachments/assets/ac44f6ea-d71c-4064-8c58-f747416d9dab" />
 
 ## Open a test PR in your repository and review the automated checks.
+
 
 ## Push your CI/CD configuration to your repo.
 
