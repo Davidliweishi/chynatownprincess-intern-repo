@@ -5,7 +5,10 @@
     "markdownlint",
     "cspell",
     "yourproject",
-    "chynatownprincess"
+    "chynatownprincess",
+    "customisable",
+    "Macbooks",
+    "customisations"
   ],
   "ignorePaths": [
     "node_modules",
