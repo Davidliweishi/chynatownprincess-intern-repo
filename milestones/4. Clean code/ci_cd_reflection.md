@@ -17,10 +17,12 @@ CI workflow:
 <img width="1512" height="814" alt="Screenshot 2026-03-22 at 9 26 54 am" src="https://github.com/user-attachments/assets/fe7d440f-f2e0-4603-b4d0-b526b4201d28" />
 
 markdownlint.json - configures which rules markdownlint enforces:
-<img width="1512" height="814" alt="Screenshot 2026-03-22 at 9 27 59 am" src="https://github.com/user-attachments/assets/70838ac9-8724-43c1-92e2-66e777c82410" />
+<img width="1192" height="423" alt="Screenshot 2026-03-23 at 11 44 50 am" src="https://github.com/user-attachments/assets/830a7b88-bec3-4ee8-b383-87531c41f8fb" />
+
 
 cspell.json - spell checker for technical writing and code:
-<img width="1512" height="814" alt="Screenshot 2026-03-22 at 9 30 11 am" src="https://github.com/user-attachments/assets/f0dc6abf-0a8f-413f-a50e-4c81138bc49c" />
+<img width="1192" height="464" alt="Screenshot 2026-03-23 at 11 45 05 am" src="https://github.com/user-attachments/assets/793010f2-773f-4b08-8e65-e4109f97d6a1" />
+
 
 
 ## Experiment with Git Hooks (e.g., Husky) to enforce linting before commits.
