@@ -2,7 +2,7 @@
 
 ## Research the difference between staging and committing.
 
-Staging prepares specific changes to be included in commit, you can think of it like drafting code. Commiting permanently records those changes into the local repository history. Essentially, staging is drafting the code before commiting. Whereas commiting is finalising code to a code base. 
+Staging prepares specific changes to be included in commit, you can think of it like drafting code. Committing permanently records those changes into the local repository history. Essentially, staging is drafting the code before committing. Whereas committing is finalising code to a code base. 
 
 
 ## Experiment with adding and committing files in your repo using either:
@@ -34,16 +34,16 @@ Commit the file and observe the difference.
 
 What is the difference between staging and committing?
 
-Staging is the setp where you prepare and que changes for your next commit. You can add or remove files from the staging area frrely without anything saved in your project history yet. Commiting is making the changes permanent - sealing it into Git's history with a message and timestamp - therefore, becoming a part of the repo's history permanently. 
+Staging is the setup where you prepare and que changes for your next commit. You can add or remove files from the staging area freely without anything saved in your project history yet. committing is making the changes permanent - sealing it into Git's history with a message and timestamp - therefore, becoming a part of the repo's history permanently. 
 
 Why does Git separate these two steps?
-Git seperates them to give you more control and precision over what goes into each commit. Without staging, every change will automatically become a commit - which makes it confusing and hard to read. Staging allows you to group changes together into one commit. For example, you might have fixed a bug in one file and updated something in another - staging allows you to commit both of these seperately with clear and unique messages. 
+Git seperates them to give you more control and precision over what goes into each commit. Without staging, every change will automatically become a commit - which makes it confusing and hard to read. Staging allows you to group changes together into one commit. For example, you might have fixed a bug in one file and updated something in another - staging allows you to commit both of these separately with clear and unique messages. 
 
 When would you want to stage changes without committing?
 
 1) You made changes to multiple files but only want to commit one as of now.
 2) You want to review changes carefully before deciding to make them permanent.
-3) You're halfway through a project and want to check your work without commiting incomplete code.
+3) You're halfway through a project and want to check your work without committing incomplete code.
 4) You want to split your work into multiple small, more meaningful commits rather than a large messy one.
 
 Commit and push your changes to GitHub.
@@ -56,7 +56,7 @@ Commit and push your changes to GitHub.
 
 ## Research git bisect and how it helps in debugging.
 
-"git bisect" is a command that is used to idenitify a certain commit in a project's history that introduced  bug, issue or other unwanted changes into a coodebase. Its purpose is to significantly reduce the amount of commits a developer has to manually check. Therefore, it is appropriate for reducing time and effort in debugging and troubleshooting. 
+"git bisect" is a command that is used to identify a certain commit in a project's history that introduced  bug, issue or other unwanted changes into a codebase. Its purpose is to significantly reduce the amount of commits a developer has to manually check. Therefore, it is appropriate for reducing time and effort in debugging and troubleshooting. 
 
 ## Create a test scenario:
 
@@ -138,7 +138,7 @@ Good commit messages:
 
 - Concise and imperative: e.g "fix bug"
 - Limits the subject line to 50 characters
-- Caplitalizes the subject line 
+- Capitalises the subject line 
 - Does not end the line with a period (.)
 - Uses the body to explain what and why changes were ade, not how.
 - Wraps the body at 72 characters. 
@@ -149,7 +149,7 @@ Bad commit messages:
 - Vague and lacks context: e.g "fix"
 - Emotionally driven writing: "It works!"
 - Duplicates information: repeats code changes from a previous commit and forces users to check manually - e.g "Fix BUG-9284"
-- Poorly formatted: messages are either too long, use incorrect tense or uses improper capitalisation making code history hard to scan - e.g "ADDED NEW STUFF AND FIXED CHANGES FROM PAST ISSUES"( waay too long and all capitalised).
+- Poorly formatted: messages are either too long, use incorrect tense or uses improper capitalisation making code history hard to scan - e.g "ADDED NEW STUFF AND FIXED CHANGES FROM PAST ISSUES"( way too long and all capitalised).
 
 Make three commits in your repo with different commit message styles:
 A really vague commit message (e.g., "fixed stuff").
