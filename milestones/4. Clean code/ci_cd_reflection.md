@@ -6,8 +6,8 @@
 
 ## Research what CI/CD is and why it’s used in software development.
 
-CI = Continious integration 
-CD = Continious Delivery 
+CI = Continuous integration 
+CD = Continuous Delivery 
 
 Both are vital for software development as they help process, test and deploy code.
 
