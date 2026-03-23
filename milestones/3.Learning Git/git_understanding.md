@@ -37,7 +37,7 @@ What is the difference between staging and committing?
 Staging is the setup where you prepare and que changes for your next commit. You can add or remove files from the staging area freely without anything saved in your project history yet. committing is making the changes permanent - sealing it into Git's history with a message and timestamp - therefore, becoming a part of the repo's history permanently. 
 
 Why does Git separate these two steps?
-Git seperates them to give you more control and precision over what goes into each commit. Without staging, every change will automatically become a commit - which makes it confusing and hard to read. Staging allows you to group changes together into one commit. For example, you might have fixed a bug in one file and updated something in another - staging allows you to commit both of these separately with clear and unique messages. 
+Git separates them to give you more control and precision over what goes into each commit. Without staging, every change will automatically become a commit - which makes it confusing and hard to read. Staging allows you to group changes together into one commit. For example, you might have fixed a bug in one file and updated something in another - staging allows you to commit both of these separately with clear and unique messages. 
 
 When would you want to stage changes without committing?
 
@@ -47,10 +47,6 @@ When would you want to stage changes without committing?
 4) You want to split your work into multiple small, more meaningful commits rather than a large messy one.
 
 Commit and push your changes to GitHub.
-
-
-
-
 
 ✅ Tasks
 

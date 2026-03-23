@@ -12,7 +12,8 @@
     "upkeeping",
     "capitalisation",
     "capitalised",
-    "finalising"
+    "finalising",
+    "Capitalises"
   ],
   "ignorePaths": [
     "node_modules",
