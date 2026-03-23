@@ -4,7 +4,8 @@
   "words": [
     "markdownlint",
     "cspell",
-    "yourproject"
+    "yourproject",
+    "chynatownprincess"
   ],
   "ignorePaths": [
     "node_modules",
