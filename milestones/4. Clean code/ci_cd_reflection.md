@@ -36,13 +36,13 @@ cspell.json - spell checker for technical writing and code:
 ## What is the purpose of CI/CD?
 
 It has a few important purposes:
-1) It automates workflows - allowing for the transition of software development into produciton alot quicker and smoother. 
+1) It automates workflows - allowing for the transition of software development into production a lot quicker and smoother. 
 2) It allows for faster release cycles, therefore allowing developers and users to test and release updates faster. 
-3) Higher code quality - every code change is automatically flagged, hence allows for earlier bug detect, integration issues and ecurity problems. 
-4) Conitinuous feedback - developers will constantly see feedback on code commits and fixes. 
+3) Higher code quality - every code change is automatically flagged, hence allows for earlier bug detect, integration issues and security problems. 
+4) Continuous feedback - developers will constantly see feedback on code commits and fixes. 
 
 ## How does automating style checks improve project quality?
-Automating checks allow for consistent quality by enforcing coding standards on every change, commit and fixes. By linting and spell checking your code, it will allow for cleaner code - which reduces technical debt when youre further along the project. 
+Automating checks allow for consistent quality by enforcing coding standards on every change, commit and fixes. By linting and spell checking your code, it will allow for cleaner code - which reduces technical debt when you're further along the project. 
 
 ## What are some challenges with enforcing checks in CI/CD?
 There can be instances where you get a 'false positive', meaning that some changes get flagged incorrectly. This may lead to frustration and distrust by developers in the system. This in turn slows down the fast turnaround for frequent updates. 
