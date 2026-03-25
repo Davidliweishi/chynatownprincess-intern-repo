@@ -18,7 +18,7 @@ Docker run is a command line tool used for managing a single container. Whereas 
 
 2) How does Docker Compose help when working with multiple services?
 
-Instead if a complex, multi service command (like docer run), it allows you to define it in one "docker-compose.yml' file, making the entire application stack easy to track and manage. 
+Instead if a complex, multi service command (like docker run), it allows you to define it in one "docker-compose.yml' file, making the entire application stack easy to track and manage. 
 
 3) What commands can you use to check logs from a running container?
 
@@ -29,4 +29,4 @@ To view logs with time stamps - use "docker logs --timestamps <container_id>" or
 
 4) What happens when you restart a container? Does data persist?
 
-If a container is restated, the process inside it wil be stopped and started again. Data written to the ephermeral storage layer will still persist during the restart
+If a container is restated, the process inside it wil be stopped and started again. Data written to the ephemeral storage layer will still persist during the restart
