@@ -9,7 +9,7 @@ When developing Focus Bear’s backend, you’ll need to inspect logs, restart s
 
 Research how to inspect running containers (docker ps, docker inspect)
 
-1) 'docker ps' = command used to list all of the currentl running containers and provides a quick overview:
+1) 'docker ps' = command used to list all of the currently running containers and provides a quick overview:
 
 <img width="817" height="101" alt="Image" src="https://github.com/user-attachments/assets/cdad714d-9e87-4fb3-8c0c-348b937e9009" />
 
@@ -41,7 +41,7 @@ Example: I'm going to list the files in a container's root directory using the f
 docker exec <container_name_or_id> ls -l /
 
 ls = list
--l / = long listing format: instead of just givng out the names, it shows tales with extra details for each of the listed items
+-l / = long listing format: instead of just giving out the names, it shows tales with extra details for each of the listed items
 
 <img width="774" height="416" alt="Image" src="https://github.com/user-attachments/assets/be0b99c8-1eb9-4bf4-8a86-4a776b64370d" />
 
@@ -82,7 +82,7 @@ Main difference: docker volumes are fully created and managed by the Docker Engi
 
 ## How can you troubleshoot database connection issues inside a containerized NestJS app?
 
-The most common issues relating to cofigurations and networking:
+The most common issues relating to configurations and networking:
 
 1) Not using service names for host: containers should use the database service name as the hostname, not 'localhost' (as an example)
 
