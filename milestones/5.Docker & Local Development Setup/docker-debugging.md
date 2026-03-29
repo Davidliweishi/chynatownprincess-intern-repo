@@ -13,7 +13,7 @@ Research how to inspect running containers (docker ps, docker inspect)
 
 <img width="817" height="101" alt="Image" src="https://github.com/user-attachments/assets/cdad714d-9e87-4fb3-8c0c-348b937e9009" />
 
-2) 'docker inspect <container id or name>' = command provides a low-level information about the containter in JOSN format. Useful for debugging configurations, netwrok settings, and volume mounts. 
+2) 'docker inspect <container id or name>' = command provides a low-level information about the container in JSON format. Useful for debugging configurations, network settings, and volume mounts. 
 
 <img width="817" height="416" alt="Image" src="https://github.com/user-attachments/assets/50af8e1b-3b13-4c9e-8d57-391abf43cad5" />
 
@@ -34,14 +34,14 @@ To display only specific lines of recent log lines.
 
 ## Explore how to enter a running container (docker exec -it)
 
-docker exec -it = executes a command in a running container. It is used to debug, inspect a container's environment and perfrom admin tasks without having to restarted the container again. 
+docker exec -it = executes a command in a running container. It is used to debug, inspect a container's environment and perform admin tasks without having to restarted the container again. 
 
 Example: I'm going to list the files in a container's root directory using the following command:
 
 docker exec <container_name_or_id> ls -l /
 
 ls = list
--l / = long listing format: isntead of just outputing the names, it shows tales with extra details for each of the listed items
+-l / = long listing format: instead of just givng out the names, it shows tales with extra details for each of the listed items
 
 <img width="774" height="416" alt="Image" src="https://github.com/user-attachments/assets/be0b99c8-1eb9-4bf4-8a86-4a776b64370d" />
 
@@ -52,7 +52,7 @@ ls = list
 
 2) 'docker rm' = removes a container.
 
-3) docker-compose down = stops and removes all containers, networks and images defined in yout file. Unlike docker stop, the down process completely does a full clean of the resources created by 'docker compose up'.
+3) docker-compose down = stops and removes all containers, networks and images defined in your file. Unlike docker stop, the down process completely does a full clean of the resources created by 'docker compose up'.
 
 4) docker compose up = command used to build (re)create, start and attach to containers for all services defined in a docker-compose.yml file. 
 
@@ -62,7 +62,7 @@ ls = list
 
 ## How can you check logs from a running container?
 
-You use the command 'docker logs -f <container_id_or_name>' to find a particular log about a file in your container. You can be as generic or specific about which or what file you want to read by simply writting different versions of the command (see examples given in the task questions above).
+You use the command 'docker logs -f <container_id_or_name>' to find a particular log about a file in your container. You can be as generic or specific about which or what file you want to read by simply writing different versions of the command (see examples given in the task questions above).
 
 ## What is the difference between docker exec and docker attach?
 
@@ -84,10 +84,10 @@ Main difference: docker volumes are fully created and managed by the Docker Engi
 
 The most common issues relating to cofigurations and networking:
 
-1) Not using service names for host: containers shoukld use the database service name as the hostname, not 'localhost' (as an example)
+1) Not using service names for host: containers should use the database service name as the hostname, not 'localhost' (as an example)
 
 2) Environment variables not defined correctly in your '.env' folder. Make sure they are correctly defined before validating it. 
 
-3) Make sure ports are mapped: if you are running th eNestJSapp on your host machine, but the database in your container, you need to ensure that the DB port is exposed and your app connects to 'localhost'. If both are in Docker port mapping on the DB are not necessarily needed for container to container communication within the same netwokr. 
+3) Make sure ports are mapped: if you are running th eNestJSapp on your host machine, but the database in your container, you need to ensure that the DB port is exposed and your app connects to 'localhost'. If both are in Docker port mapping on the DB are not necessarily needed for container to container communication within the same network. 
 
-In summary: Troubleshooting involves verifying Docker Compose network connectivity, using container names as hostnames, ensuring the database is fully intialized before the app starts, and cehcmong environment variable consistency. 
+In summary: Troubleshooting involves verifying Docker Compose network connectivity, using container names as hostname, ensuring the database is fully initialized before the app starts, and environment variable consistency. 
