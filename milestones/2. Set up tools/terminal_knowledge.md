@@ -11,4 +11,6 @@ I've made no customisations so far as I'm still learning its basic features.
 
 ## What was the most useful command you learned today?
 
-Although I've learned a few basic commands, the most useful is the ability to step back in time to see past screen contents with Cmd + Option + B
+Although I've learned a few basic commands, the most useful was the `history` command.
+It displays a list of all previously ran commands in the terminal, which is really helpful
+for retracing your steps or rerunning a command without having to type it out again.
