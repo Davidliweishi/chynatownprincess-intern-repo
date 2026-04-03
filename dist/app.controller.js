@@ -12,10 +12,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppController = exports.CatsController = void 0;
+exports.EmailController = exports.AppController = exports.CatsController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 const create_cat_dto_1 = require("./users/dto/create-cat.dto");
+const email_service_1 = require("./email/email.service");
 let CatsController = class CatsController {
     create(createCatDto) {
         return createCatDto;
@@ -33,7 +34,6 @@ exports.CatsController = CatsController = __decorate([
     (0, common_1.Controller)('cats')
 ], CatsController);
 let AppController = class AppController {
-    appService;
     constructor(appService) {
         this.appService = appService;
     }
@@ -52,4 +52,24 @@ exports.AppController = AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])
 ], AppController);
+let EmailController = class EmailController {
+    constructor(emailService) {
+        this.emailService = emailService;
+    }
+    async queueWelcome(to) {
+        return this.emailService.sendWelcomeEmail(to);
+    }
+};
+exports.EmailController = EmailController;
+__decorate([
+    (0, common_1.Post)('welcome'),
+    __param(0, (0, common_1.Body)('to')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], EmailController.prototype, "queueWelcome", null);
+exports.EmailController = EmailController = __decorate([
+    (0, common_1.Controller)('email'),
+    __metadata("design:paramtypes", [email_service_1.EmailService])
+], EmailController);
 //# sourceMappingURL=app.controller.js.map

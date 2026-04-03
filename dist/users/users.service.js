@@ -18,11 +18,10 @@ const typeorm_1 = require("typeorm");
 const user_entity_1 = require("./entities/user.entity");
 const typeorm_2 = require("@nestjs/typeorm");
 let UsersService = class UsersService {
-    userRepository;
-    users = [];
-    nextId = 1;
     constructor(userRepository) {
         this.userRepository = userRepository;
+        this.users = [];
+        this.nextId = 1;
     }
     async create(createUserDto) {
         const user = { id: this.nextId++, ...createUserDto };

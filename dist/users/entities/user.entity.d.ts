@@ -3,5 +3,6 @@ export declare class UserEntity {
     name: string;
     email: string;
     password: string;
+    isActive: boolean;
     constructor(partial: Partial<UserEntity>);
 }

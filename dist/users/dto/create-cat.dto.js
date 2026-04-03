@@ -12,9 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateCatDto = void 0;
 const class_validator_1 = require("class-validator");
 class CreateCatDto {
-    name;
-    age;
-    email;
 }
 exports.CreateCatDto = CreateCatDto;
 __decorate([
