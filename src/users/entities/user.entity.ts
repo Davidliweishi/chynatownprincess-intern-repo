@@ -16,6 +16,10 @@ export class UserEntity {
   @Exclude()
   password: string;
 
+  // we want our database to become this
+  @Column({ default: true })
+  isActive: boolean;
+
   constructor(partial: Partial<UserEntity>) {
     Object.assign(this, partial);
   }
