@@ -13,10 +13,6 @@ exports.UserEntity = void 0;
 const class_transformer_1 = require("class-transformer");
 const typeorm_1 = require("typeorm");
 let UserEntity = class UserEntity {
-    id;
-    name;
-    email;
-    password;
     constructor(partial) {
         Object.assign(this, partial);
     }
@@ -39,6 +35,10 @@ __decorate([
     (0, class_transformer_1.Exclude)(),
     __metadata("design:type", String)
 ], UserEntity.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ default: true }),
+    __metadata("design:type", Boolean)
+], UserEntity.prototype, "isActive", void 0);
 exports.UserEntity = UserEntity = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

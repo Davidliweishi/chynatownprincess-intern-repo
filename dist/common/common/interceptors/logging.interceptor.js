@@ -10,15 +10,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoggingInterceptor = void 0;
 const common_1 = require("@nestjs/common");
 const rxjs_1 = require("rxjs");
+const crypto_1 = require("crypto");
 let LoggingInterceptor = LoggingInterceptor_1 = class LoggingInterceptor {
-    logger = new common_1.Logger(LoggingInterceptor_1.name);
+    constructor() {
+        this.logger = new common_1.Logger(LoggingInterceptor_1.name);
+    }
     intercept(context, next) {
         const http = context.switchToHttp();
         const req = http.getRequest();
         const res = http.getResponse();
         const { method, url, headers, ip } = req;
         const body = req.body;
-        const requestId = crypto.randomUUID();
+        const requestId = (0, crypto_1.randomUUID)();
         const startTime = Date.now();
         this.logger.log({
             event: 'request',

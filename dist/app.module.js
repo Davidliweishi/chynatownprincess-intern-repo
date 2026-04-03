@@ -14,6 +14,9 @@ const logger_middleware_1 = require("./common/common/middleware/logger.middlewar
 const users_module_1 = require("./users/users.module");
 const user_entity_1 = require("./users/entities/user.entity");
 const typeorm_1 = require("@nestjs/typeorm");
+const bullmq_1 = require("@nestjs/bullmq");
+const email_module_1 = require("./email/email.module");
+const tasks_module_1 = require("./tasks/tasks.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer.apply(logger_middleware_1.LoggerMiddleware).forRoutes('*');
@@ -27,13 +30,21 @@ exports.AppModule = AppModule = __decorate([
                 type: 'postgres',
                 host: process.env.DATABASE_HOST,
                 port: Number(process.env.DATABASE_PORT),
-                username: process.env.DATABASE_USERNAME,
+                username: process.env.DATABASE_USER,
                 password: process.env.DATABASE_PASSWORD,
                 database: process.env.DATABASE_NAME,
                 entities: [user_entity_1.UserEntity],
                 synchronize: true,
             }),
+            bullmq_1.BullModule.forRoot({
+                connection: {
+                    host: process.env.REDIS_HOST || 'redis',
+                    port: Number(process.env.REDIS_PORT) || 6379,
+                },
+            }),
             users_module_1.UsersModule,
+            email_module_1.EmailModule,
+            tasks_module_1.TasksModule,
         ],
         providers: [
             {
