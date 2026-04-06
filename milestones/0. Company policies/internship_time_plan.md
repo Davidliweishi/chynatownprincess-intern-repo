@@ -4,3 +4,6 @@
 
 This will be the basis for most of my weeks during this semester. I have allocated two days to work on the internship, Monday and Wednesdays. There are free hours duirng the week where I can allocated it to whatever task I need to do. 
 Therefore, I can use those hours towards the internship if this is needed. 
+
+This is a screenshot of me using the Focus Bear app to log my hours:
+<img width="585" height="1266" alt="Image" src="https://github.com/user-attachments/assets/a5d75bdd-06e6-4e23-9d7c-daf94a10a45d" />
