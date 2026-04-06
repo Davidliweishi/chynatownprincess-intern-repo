@@ -1,0 +1,109 @@
+## Focus Bear’s backend evolves over time, requiring schema updates and initial test data. TypeORM migrations help ensure safe, version-controlled changes, and seeding is useful for setting up test environments.
+
+✅ Tasks
+
+## Research how migrations work in TypeORM (typeorm migration:generate)
+
+TypeORM migrations are versioned files that describe scheme changes to a database. 
+
+Instead of relying on 'synchronize: true', you generate or write migration files, then run them in order. 
+
+it can help:
+
+- Create tables
+- Adding columns
+- Updating fields
+
+**This makes your database changes more predictable and safe**
+
+## Create a new migration and apply it to the database
+
+Know the order:
+
+- Change entity
+- Generate migration
+- run migration
+
+1) Go to src/users/entities/user.entity.ts
+
+<img width="552" height="538" alt="Image" src="https://github.com/user-attachments/assets/adfffa86-007c-4d6c-a1ef-e95f3459cbd2" />
+
+2) Make sure we have 'data-source.ts (src/data-source.ts)
+
+<img width="552" height="538" alt="Image" src="https://github.com/user-attachments/assets/ec930682-55f9-4d2e-aa7b-7891f793bee1" />
+
+This file is what TypeORM uses to compare database vs code
+
+3) Generate the migration using the following command:
+
+npx typeorm-ts-node-commonjs migration:generate src/migrations/AddIsActive -d src/data-source.ts
+
+<img width="643" height="128" alt="Image" src="https://github.com/user-attachments/assets/978982f7-f89b-46c0-9349-c24ade285523" />
+
+4) Check the migration file: 
+
+<img width="643" height="350" alt="Image" src="https://github.com/user-attachments/assets/f0cb3cc8-e5a2-43ac-b4a0-f2231584292c" />a
+
+5) Run the migration:
+
+npx typeorm-ts-node-commonjs migration:run -- -d src/data-source.ts
+
+<img width="643" height="303" alt="Image" src="https://github.com/user-attachments/assets/7175ffd8-e4c4-41ae-93cb-b92551a9c06f" />
+
+
+## Seed sample data into PostgreSQL using TypeORM repositories
+
+1) Create a file to seed (add data)
+src/seed.ts
+
+<img width="643" height="402" alt="Image" src="https://github.com/user-attachments/assets/937cc309-3ca3-4fc2-96d5-8ebb5d162fd9" />
+
+and then run it:
+
+npx ts-node src/seed.ts
+
+<img width="643" height="633" alt="Image" src="https://github.com/user-attachments/assets/858458a5-a94a-414e-b1b7-9ec8cca199d4" />
+
+And that's it!
+
+## Explore how migrations can be used to roll back database changes
+
+1) Roll back (if needed):
+
+npx typeorm-ts-node-commonjs migration:revert -d src/data-source.ts
+
+<img width="643" height="238" alt="Image" src="https://github.com/user-attachments/assets/a98f505e-4988-40dc-ad15-9505a1b1721f" />
+
+Then check everything is rolled back:
+
+npx typeorm-ts-node-commonjs migration:show -d src/data-source.ts
+
+<img width="643" height="44" alt="Image" src="https://github.com/user-attachments/assets/1e633f76-8424-4cc6-a497-4b8c65aeddc6" />
+
+
+## ✅ Reflection (typeorm-migrations.md)
+## What is the purpose of database migrations in TypeORM?
+
+Migrations serve as a data version control system for your DB schema. It allowd you to update and manage a DB structure withpout loosing existing data. They are essential in environments where using the automatic 'synchronize: true' option is too unsafe, as it can elead to accidental data loss. 
+
+
+## How do migrations differ from seeding?
+
+Migration = handles DB schema structure like tables and columns that increment over time. Migration are for changes that run once.
+
+Seeding = inputing and adding to databases with initial, default and test data. Seeding are for populating data, usually for testing or startup.
+
+## Why is it important to version-control database schema changes?
+
+it is good for tracking schema changes, ensure consistency across environments and allow safe roll bakcs if errors or the need to occurs. 
+
+## How can you roll back a migration if an issue occurs?
+
+You can roll back by simply using the command: 
+
+npx typeorm-ts-node-commonjs migration:revert -d src/data-source.ts
+
+This tells TypeORM to roll back to the most recent migration.
+
+up() '-u' = pushes database changes
+down() '-d' = reverses database changes
