@@ -178,14 +178,41 @@ Completes job
 
 ## ✅ Reflection (nestjs-bullmq.md)
 
-Why is BullMQ used instead of handling tasks directly in API requests?
+## Why is BullMQ used instead of handling tasks directly in API requests?
+
+Key Reasons:
+
+1) API Responsiveness: It provides immediate response to the clients, because heavy processes like sending emails, processing uploads, etc are all happening async in the background.
+
+2) Reliability: It automatically retries failed tasks, ensuring tasks are not lost in the case that the server crashes.
+
+3) Scalability: Allows horizontal scaling by adding more work processes to handle increasing workloads wihouth affecting the API's performance.
+
+4) Controlled Processing: It can manage task performances by priority queues and scheduling.
+
 
 Handling tasks directly in API requests means a user has to wait for everything to finish.
 
 
 
-How does Redis help manage job queues in BullMQ?
+## How does Redis help manage job queues in BullMQ?
+
+Redis acts as the primary stoage engine for BullMQ. It serves as the middleman for producers and workers. It has persistant job storage, queing all data and job workloads. This ensures if Node.js processes crash, the jobs remain safe in Redis and can resume when you restart it. 
 
 What happens if a job fails? How can failed jobs be retried?
 
+When a job fails, it automatically moves to the 'failed' jobs set in Redis. It can then be retried using two methods:
+
+1) Automatic retries
+A job retries itself a number of times before it is permanently marked as failed. This sets during the job creation.
+
+3) Manual and Programmatic retries
+You can manually trigger a retry if all automatic retries fail through the following:
+
+Programmatic retry(): Use the Job.retry() method to move a job from the failed or completed state back to the waiting queue.
+
+Dashboards: Tools like BullBoard provide a GUI where you can select failed jobs and click a "Retry" button.
+
 How does Focus Bear use BullMQ for background tasks?
+
+FocusBear mainly uses BullMQ  to manage time-sensitive notifications like habit reminders, data analytics and repeated jobs without slowing down its interface. By offloading these tasks to Redis, the app can remain sharp and useable, which is important to those who struggle to task switch.
