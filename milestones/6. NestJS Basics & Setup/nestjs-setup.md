@@ -31,4 +31,4 @@ AppModule = the root of the angular application, used as the primary starting po
 
 ## How does NestJS structure help with scalability?
 
-It helps by using mudular architecture and built in features like dependency injection to manage application complexity. It promotes clean code and simplification of horizontal scaling features. 
+It helps by using mudular architecture and built in features like dependency injection to manage application complexity. It promotes clean code and simplification of horizontal scaling features. test change
