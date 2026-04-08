@@ -98,6 +98,9 @@ Version control databases are critical because it ensures that structural modifi
 
 To roll back a migration in NestJs (using TypeORM), we must run the command 'npm run typeorm:revert -- -d path/to/database', which executes teh 'down' method of your last migration. If the migration fails, you can manually update the 'migrations' table in your database, revert the TypeScript code, and create a new migration to fix it. 
 
-Migration = handles DB schema structure like tables and columns 
 ## Why is it important to version-control database schema changes?
+Version-controlling database schema changes is critical because it ensures consistency across environments, prevents data loss through safe rollbacks, and eliminates the manual bottleneck that often delays modern application releases.
+
 ## How can you roll back a migration if an issue occurs?
+To rollback a migration in NestJS (typically using TypeORM), use the migration:revert command. This executes the down method of the most recently applied migration and removes its entry from the database's migration history table.
+
