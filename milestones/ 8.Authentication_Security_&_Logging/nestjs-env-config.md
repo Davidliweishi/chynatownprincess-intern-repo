@@ -114,18 +114,18 @@ To prevent this, developers should:
 
 ## Reflection (nestjs-env-config.md)
 
-How does @nestjs/config help manage environment variables?
+## How does @nestjs/config help manage environment variables?
 
 It provides a strutured and safe way to load and access config through ConfigModule and Config service. Essentially it is a wrapper around the 'doctenv' library.
 
-Why should secrets (e.g., API keys, database passwords) never be stored in source code?
+## Why should secrets (e.g., API keys, database passwords) never be stored in source code?
 
 Because it can expose sensitive information to anyone with access to the repo, risking breaches and unauthorised access. 
 
-How can you validate environment variables before the app starts?
+## How can you validate environment variables before the app starts?
 
 You can validate environment variables before your app starts by implementing a "Fail Fast" strategy, which involves running a validation script or schema check at the very beginning of your application’s entry point. This ensures the process exits immediately with a clear error message if any critical configuration is missing or invalid.
 
-How can you separate configuration for different environments (e.g., local vs. production)?
+## How can you separate configuration for different environments (e.g., local vs. production)?
 
 To separate configuration for different environments, use a multi-layered approach that combines environment-specific files for local work and injected secrets for production. 
