@@ -2,24 +2,32 @@
 
 ## Research how dependency injection works in NestJS
 
+<<<<<<< HEAD
 NestJS uses a dependency injection (DI) container to create and supply class dependencies automatically. Instead of a controller manually creating a service with `new UsersService()`, Nest creates the service instance and injects it through the constructor. This reduces tight coupling and makes code easier to test and maintain.
 
 
+=======
+>>>>>>> 7.Building_APIs_
 ## Understand the role of providers and the @Injectable() decorator
 
 Providers define how to create and inject dependencies
 
+<<<<<<< HEAD
 @Injectable makers a class as managable by the DI container, allowing it to have dependencies. 
 
 Example:
 
 <img width="377" height="261" alt="Image" src="https://github.com/user-attachments/assets/ac43c153-9879-4e69-9044-b3e533569169" />
+=======
+@Injectable makrs a class as managable by the DI container, allowing it to have dependencies. 
+>>>>>>> 7.Building_APIs_
 
 
 ## Explore how services are injected into controllers
 
 Services are commonly injected isung a constructor injection, where the service interface is defined as a parameter in the constructor and stored in a rpivate, read-only field. 
 
+<<<<<<< HEAD
 I practiced constructor injection in my NestJS user feature. The controller depends on UsersService, and Nest automatically supplies it:
 
 <img width="493" height="364" alt="Image" src="https://github.com/user-attachments/assets/3aef043e-4eef-4cec-8f96-4f5f158233a0" />
@@ -30,6 +38,11 @@ I practiced constructor injection in my NestJS user feature. The controller depe
 In my project, UsersService in src/users/users.service.ts uses the default singleton scope. I did not add a custom scope, so Nest creates one shared instance for the application.
 
 <img width="493" height="88" alt="Image" src="https://github.com/user-attachments/assets/674472bc-285b-4c8b-b292-5da873672d25" />
+=======
+## Investigate different provider scopes (SINGLETON, REQUEST, TRANSIENT)
+
+
+>>>>>>> 7.Building_APIs_
 
 ✅ Reflection (nestjs-dependency-injection.md)
 ## How does dependency injection improve maintainability?
@@ -53,6 +66,10 @@ There are three main scopes:
 
 ## How does NestJS automatically resolve dependencies?
 
+<<<<<<< HEAD
 When NestJS deals with a class, it reads the constructor's TypeScript metaadata to discover what types are needed. It proceeds to look up each type as a token in the module, resolves any dependencies those providers have, and injects the fully constructed instances into the constructor.
 
 ergkijeogijejg
+=======
+When NestJS deals with a class, it reads the constructor's TypeScript metaadata to discover what types are needed. It proceeds to look up each type as a token in the module, resolves any dependencies those providers have, and injects the fully constructed instances into the constructor. 
+>>>>>>> 7.Building_APIs_
