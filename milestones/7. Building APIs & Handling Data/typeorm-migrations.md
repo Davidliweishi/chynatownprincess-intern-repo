@@ -86,8 +86,17 @@ npx typeorm-ts-node-commonjs migration:show -d src/data-source.ts
 
 Migrations serve as a data version control system for your DB schema. It allowd you to update and manage a DB structure withpout loosing existing data. They are essential in environments where using the automatic 'synchronize: true' option is too unsafe, as it can elead to accidental data loss. 
 
-
 ## How do migrations differ from seeding?
+
+DB migrations manages the structural evolution of a database (like adding columns and tables), acting as a form of version control. Whereas, seeding populates a database with default data. Migrations deliver versioned and reversable data (rollbacks), while seeding typically only inject data once. 
+
+## Why is it important to version-control database schema changes?
+
+Version control databases are critical because it ensures that structural modifications like adding columns and tables are tracable, repeatable and synchronised with application code. Thus, preventing production failures and data loss. 
+
+## How can you roll back a migration if an issue occurs?
+
+To roll back a migration in NestJs (using TypeORM), we must run the command 'npm run typeorm:revert -- -d path/to/database', which executes teh 'down' method of your last migration. If the migration fails, you can manually update the 'migrations' table in your database, revert the TypeScript code, and create a new migration to fix it. 
 
 Migration = handles DB schema structure like tables and columns 
 ## Why is it important to version-control database schema changes?
