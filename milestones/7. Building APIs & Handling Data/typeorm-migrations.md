@@ -90,5 +90,17 @@ Migrations serve as a data version control system for your DB schema. It allowd 
 ## How do migrations differ from seeding?
 
 Migration = handles DB schema structure like tables and columns 
+
+
 ## Why is it important to version-control database schema changes?
+
+
+
 ## How can you roll back a migration if an issue occurs?
+
+How to rollback a migration:
+
+Framework rollback (easiest): npm run migration:revert for one migration or --all for everything
+Manual SQL — Execute the down() script from your migration file
+Blue-green deployment — Keep old schema running while new one is tested
+Zero-downtime — Deploy backward-compatible code first, then migrate, then rollback code if needed
