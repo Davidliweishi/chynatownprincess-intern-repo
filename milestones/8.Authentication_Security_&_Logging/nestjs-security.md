@@ -55,9 +55,40 @@ A Fastify plugin that hekps protect an application from abuse and excessive traf
 
 npm install @fastify/rate-limit
 
-2)  
+2)  Use this in main.ts
+
+<img width="504" height="863" alt="Image" src="https://github.com/user-attachments/assets/554e043c-71c3-45ff-a983-a30d097625b6" />
+
+3) Now run docker to test it out:
+
+docker compose up --build (We are rebuilding our docker container as there is new code)
+
+npm run start:dev (run the app locally):
+
+PS: change the port if you get an error (e.g port 3000 to something else) if it is already being used.
+
+<img width="593" height="863" alt="Image" src="https://github.com/user-attachments/assets/0142dadc-e68c-4fa5-933b-8806e35a087a" />
+
+4) 
+
 
 **Understand how to securely handle API keys and environment variables*
+
+In NestJS, senstive information like API keys, database credentials and JWT secrets should never be exposed and hardcoded into your source code. Instead, they should be stored in environment variables like .env files and accessed through @nestjs/config.
+
+'ConfigModule' and ConfigService' provides a central and secure way to manage all configurations. They also allow you to validate required variables at start up. Thus, making the app run without missing or incorrect values. 
+
+For security:
+
+1) use '.env' and '.gitignore' to avoid commiting senseitive information. 
+
+2) Never log or expose secrets in API responses.
+
+3) Use different environment variables for development, testing and production. 
+
+4) Apply least privilege to all credentials (only giving necessary access and nothing else to relevant users).
+
+While these are all good, production apps should still consider using a secrets manager like AWS secrets manager, to reinforce better security and access control. 
 
 
 ✅ Reflection (nestjs-security.md)
