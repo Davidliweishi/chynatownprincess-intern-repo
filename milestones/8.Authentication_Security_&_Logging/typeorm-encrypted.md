@@ -73,6 +73,8 @@ Encryption keys are stored and managed within environment variables like .env fi
 
 **Why does Focus Bear double encrypt sensitive data instead of relying on database encryption alone?*
 
+Double encryption( ap level and database encryption) protects sensitive data even if one layer fails to do so. it helps prevent database admins or attackers from using DB access to get into an app withouth app encyrption key. It also helps separate key management between layers, helps meet compliance requirements, and protects against insider threats. The trade off is performance overhead and added complexity, for highly sensitive data like passwords, etc. This makes the extra security worth the effort. 
+
 
 **How does typeorm-encrypted integrate with TypeORM entities?*
 
@@ -90,4 +92,54 @@ this partocular decorator simplifies configuration and validates your encryption
 
 **What are the best practices for securely managing encryption keys?*
 
-What are the trade-offs between encrypting at the database level vs. the application level?
+1. Using a Key Management Service (KMS)
+
+- stores keys in dedicated services like AWS KMS or Azure Key Vaults. 
+- Never store hardcoded keys into your app or version control like Git. 
+- Keys are encrypted and access is audited.
+
+2. Separate Keys from Secrets
+
+- Keep encryption keys separate from app secrets
+- Use different keys for different purposes (e.g database encryption, API tokens, etc.)
+- Rotate keys after certain timeframes to keep it fresh (e.g 30 days).
+
+3. Key rotation
+
+- Regularly replace old keys with new ones
+- Re-encrypt data with new keys to maintain security
+- Keep old keys for decrypting legacy/historic data
+
+
+**What are the trade-offs between encrypting at the database level vs. the application level?*
+
+Database Encryption 
+
+Pros:
+
+- Protects data at rest automatically
+- Easier to implement and change compared to app level encryption
+- Less performance issues per transaction
+- good for overall compliance on a wider level (data encryption requirement).
+
+Cons:
+
+- DB admins or anyone with DB acess can decrpt data
+- Encryption/decryption keys managed by infrastructure teams (not you).
+- Limited control over encryption logic
+
+Application Encryption
+
+Pros:
+
+- Only the app can decrypt data (stronger and more focused security).
+- Protects against DB breaches and insider threats
+- More control over your own custome logic and encyrpt specific fields. 
+- Better for really important and highly sensistive data like passwords. 
+
+Cons: 
+
+- More code to write and maintain.
+- Higher performance overhead
+- Compliance database queries. 
+- Requires more meticulous implementation to avodi security flaws (More scrutiny).
