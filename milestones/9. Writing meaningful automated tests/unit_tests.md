@@ -174,7 +174,7 @@ function App() {
 
 export default App;
 
-2. Update inde.js (Entry point)
+2. Update index.js (Entry point)
 Make sure the src/index.js imports the App component:
 
 import React from 'react';
@@ -256,4 +256,39 @@ npm start
 <img width="756" height="638" alt="Image" src="https://github.com/user-attachments/assets/924a8b57-4e0b-404c-93dd-868aea3702a4" />
 
 
+***
+
+**Run the test and check that it passes.**
+
+**BONUS STEP* 
+7. Create/verify your jest.fn() in App.test.js
+<img width="1512" height="970" alt="Image" src="https://github.com/user-attachments/assets/b99a0ce5-8319-412a-a171-9e9a5b0caea8" />
+
+8. run 'npm test --App.test.js' to verify your jest.fn() and API calls are being fetched and displayed properly. Add 'screen.debug();' to help display the output information for verification if needed.
+
+<img width="1512" height="970" alt="Image" src="https://github.com/user-attachments/assets/92824651-9f22-4894-ac51-4a4c803c1a3e" />
+
+9. If all tests have passed, that means your jest test results for your React component has worked. 
+
+*** 
+**Reflections**
+
+*Why is it important to mock API calls in tests?*
+
+Mocking APIs are important as it creates fast, reliable and isolated tests the are not influenced by external services, allowing development to continue even if a backend is unfinished. In summary, it allow for faster development without needing to do testing at the last strage of a fully developed application and backend - saving time and technical debt later one. 
+
+*What are some common pitfalls when testing asynchronous code?*
+
+Async code = a programming technique that allows a long running tasks - like fetching data or reading files - to run in the background without blocking the main execution function in the app. 
+
+Async code is difficult to test, therefore common pitfalls include flaky tests, false positive results, and hung test suites (aka testsets that stop responding or freeze during execution).
+
+Other common pitfalls also include:
+
+1. Mixing synchronous and async code
+2. Blocking the event loop - test suit slows down because event loop (the ability to push pending async callbakcs onto a stack for execution when they are empty).
+3. Untested error paths - only testing the successful resolution of a promised result, not the rejection itself. 
+
+
+***
 
