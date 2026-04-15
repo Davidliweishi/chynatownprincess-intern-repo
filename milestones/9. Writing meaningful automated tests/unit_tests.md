@@ -174,7 +174,7 @@ function App() {
 
 export default App;
 
-2. Update inde.js (Entry point)
+2. Update index.js (Entry point)
 Make sure the src/index.js imports the App component:
 
 import React from 'react';
@@ -256,4 +256,116 @@ npm start
 <img width="756" height="638" alt="Image" src="https://github.com/user-attachments/assets/924a8b57-4e0b-404c-93dd-868aea3702a4" />
 
 
+***
 
+**Run the test and check that it passes.**
+
+**BONUS STEP* 
+7. Create/verify your jest.fn() in App.test.js
+<img width="1512" height="970" alt="Image" src="https://github.com/user-attachments/assets/b99a0ce5-8319-412a-a171-9e9a5b0caea8" />
+
+8. run 'npm test --App.test.js' to verify your jest.fn() and API calls are being fetched and displayed properly. Add 'screen.debug();' to help display the output information for verification if needed.
+
+<img width="1512" height="970" alt="Image" src="https://github.com/user-attachments/assets/92824651-9f22-4894-ac51-4a4c803c1a3e" />
+
+9. If all tests have passed, that means your jest test results for your React component has worked. 
+
+*** 
+**Reflections**
+
+*Why is it important to mock API calls in tests?*
+
+Mocking APIs are important as it creates fast, reliable and isolated tests the are not influenced by external services, allowing development to continue even if a backend is unfinished. In summary, it allow for faster development without needing to do testing at the last strage of a fully developed application and backend - saving time and technical debt later one. 
+
+*What are some common pitfalls when testing asynchronous code?*
+
+Async code = a programming technique that allows a long running tasks - like fetching data or reading files - to run in the background without blocking the main execution function in the app. 
+
+Async code is difficult to test, therefore common pitfalls include flaky tests, false positive results, and hung test suites (aka testsets that stop responding or freeze during execution).
+
+Other common pitfalls also include:
+
+1. Mixing synchronous and async code
+2. Blocking the event loop - test suit slows down because event loop (the ability to push pending async callbakcs onto a stack for execution when they are empty).
+3. Untested error paths - only testing the successful resolution of a promised result, not the rejection itself. 
+
+
+***
+
+# Introduction to Unit Testing with Jest
+
+# Goal
+*Learn the basics of unit testing in React using Jest.*
+
+✅ Why is this important?
+Focus Bear relies on automated testing to ensure the stability of features across updates. Writing unit tests prevents regressions and improves code reliability.
+
+✅ Tasks
+
+# Research what Jest is and why unit tests are important.
+
+*What is Jest?*
+
+Jest = a popular Javascript testing framework. It is designed to test JS code with a focus on simplicity and developer experience. 
+
+*What it does* 
+
+It allows you to write and run unit tests - automated tests that verify your code if it works correctly.
+
+*Why are unit tests important*
+
+1. Catch bugs early and save you time and money on bug fixes
+2. Enable refactoring and testing that doesn't break existing functionality. Without refactoring, testing is risky.
+3. Reduce debugging ime
+4. Improve code quality
+
+***
+
+# Set up Jest in your React project (if not already included).
+
+* Jest is already set up and is in my package.json (/Users/cashies/Desktop/Computer/Internship/chynatownprincess-intern-repo/nest-js/package.json)
+
+<img width="820" height="267" alt="Image" src="https://github.com/user-attachments/assets/be1d759f-9d16-475f-9693-041143d7d276" />
+
+* Also verify this is set up in your frontend/React component (/Users/cashies/Desktop/Computer/Internship/frontend/package.json)
+
+<img width="820" height="495" alt="Image" src="https://github.com/user-attachments/assets/118f58cd-03bf-48e2-b673-a221b0cac9aa" />
+
+***
+
+# Write a simple test for a utility function (e.g., a function that adds two numbers).
+
+1. Create a file called 'sum.js' in your frontend's src folder (/Users/cashies/Desktop/Computer/Internship/frontend/src/utilities/sum.js)
+
+<img width="820" height="235" alt="Image" src="https://github.com/user-attachments/assets/dc0f9456-f828-4d8a-b457-a298f2b489cd" />
+
+2. Create a file called 'sum.test.js' in your frontend's src folder alongside 'sum.js' to enable testing (/Users/cashies/Desktop/Computer/Internship/frontend/src/utilities/sum.test.js)
+
+<img width="820" height="235" alt="Image" src="https://github.com/user-attachments/assets/ca762680-8091-4310-b66d-21144474bb96" />
+
+# Run the test and check that it passes.
+
+3. Use command 'npm test sum.test.js'
+
+<img width="820" height="363" alt="Image" src="https://github.com/user-attachments/assets/a6264d1b-33aa-43e8-9eab-c1cfa9f4a559" />
+
+Push your test to GitHub.
+*** 
+
+# Reflection (in unit_tests.md):
+
+* *Why is automated testing important in software development?*
+
+It is important because:
+1. It increases testing speed
+2. It's efficient
+3. It's more accurate (less likely to encounter human error in testing)
+4. Enables faster release cycles while reducing long term costs in debugging or technical debt. 
+
+* *What did you find challenging when writing your first Jest test?*
+
+The hardest thing was actually figuring out that I'm not necessarily running tests out of my NestJS application (nest-js folder) which is my backend, so essentially I'm testing whether data is being fetched and displayed to the frontend as well. I had trouble seeing if Jest also ran from the backend as well (Jest apparently runs frontend and backend). However, I'm trying to refine it's ability to not scrape every file in order to make it work:
+
+<img width="820" height="128" alt="Image" src="https://github.com/user-attachments/assets/16b16751-8933-4551-ac42-f1f7baf5737b" />
+
+I'll need to work on this and standardise my approach to utilising both React and NestJS in relations to Jest tests. 
