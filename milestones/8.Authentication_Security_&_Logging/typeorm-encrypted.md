@@ -45,16 +45,32 @@ go to src/config/env.validation.ts
 
 6) Create a migration
 
-First go to your Nest container:
-docker exec -it nestjs sh
+Since we are testing locally without docker, we manually create the migration file.
 
-Second, generate a migration:
+**Step 1: Manually create the migration file**
 
-docker exec -it nestjs sh
-npm run migration:generate
+```bash
+'touch src/database/migrations/1713398400000-AddEncryptedFields.ts'
 
-14:01The core issue was that your data-source.ts file was in the wrong location (src/data-source.ts instead of src/database/data-source.ts), which broke the import path in seed.ts and caused all subsequent migration and database connection attempts to fail silently or hang indefinitely. When you moved the file to the correct location and fixed the import path, you discovered your local Postgres installation had permission issues with the postgres role, making Docker the only viable option — but even with Docker running, TypeORM's auto-migration generation continued to hang, likely due to connection or configuration issues that would have required significant debugging. The simplest resolution is to manually create the migration file instead of relying on TypeORM's auto-generation feature.
+**Step 2: Write the migration**
 
+Open the file and add: 
+
+<img width="722" height="409" alt="Image" src="https://github.com/user-attachments/assets/90036947-6ff8-4a69-a004-ce50913b32f6" />
+
+**Step 3: Update data-source.ts**
+
+Change the entity and migration paths to load compiled `.js` files:
+
+<img width="551" height="409" alt="Image" src="https://github.com/user-attachments/assets/9cd7d730-6491-4614-9a26-8c212dd377d8" />
+
+**Step 4: Build and run the migration**
+
+npm run build
+
+npm run migration:run
+
+<img width="551" height="164" alt="Image" src="https://github.com/user-attachments/assets/977e11fc-9321-4b65-9465-9f644a1bf377" />
 
 
 **Understand how encryption keys are managed and stored**
@@ -65,9 +81,36 @@ Encryption keys are stored and managed within environment variables like .env fi
 
 **Encapsulation within Modules*: Module encapsulation is often used to created dedicated 'EncryptionModule' that uses denpendency injections to provide encryption services within a framework/application. 
 
-**Envelope Encryption*: although not expected off the bat, this is an advanced method of protecting data through a DEK (data encryption key), where it is then encrytped again with a KEK (Key Encryption Key). thus, offering a two layer protection method. 
+**Envelope Encryption*: agit plthough not expected off the bat, this is an advanced method of protecting data through a DEK (data encryption key), where it is then encrytped again with a KEK (Key Encryption Key). thus, offering a two layer protection method. 
 
 **Test encrypting and decrypting a database field**
+
+**Step 1: Start your app**
+
+npm run build
+npm run start
+
+Wait for the message: ✅ Server running on http://localhost:3001`
+
+<img width="551" height="164" alt="Image" src="https://github.com/user-attachments/assets/7991425f-0bd9-46a6-8597-1ebe5d0a4be4" />
+
+**Step 2: Create a user with encrypted data**
+
+Open a new terminal and run:
+
+```bash
+curl -X POST http://localhost:3001/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"John","email":"john@example.com","password":"test123","phoneNumber":"+1234567890"}'
+```
+Query the database to see the encrypted data:
+
+```bash
+psql -U postgres -d focusbear -h localhost -c "SELECT id, name, email, \"phoneNumber\" FROM user_entity WHERE email = 'john@example.com';"
+```
+
+<img width="633" height="209" alt="Image" src="https://github.com/user-attachments/assets/cde7f8fc-d8fe-4222-acf2-1f2a269cfedf" />
+
 
 ✅ Reflection (typeorm-encrypted.md)
 
