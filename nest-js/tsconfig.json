@@ -19,7 +19,8 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "forceConsistentCasingInFileNames": true,
-    "ignoreDeprecations": "5.0"
+    "ignoreDeprecations": "5.0",
+    "types": ["jest", "node", "supertest"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "jest.config.ts"]

@@ -75,10 +75,32 @@ describe('UsersService', () => {
     expect(result).toEqual(mockUser);
   });
 
-  it('should return all users', async () => {
-    jest.spyOn(repository, 'find').mockResolvedValueOnce([mockUser]);
-    const result = await service.findAll();
-    expect(result).toEqual([mockUser]);
+  describe('findAll', () => {
+    it('should return all users with correct data', async () => {
+      const users = [
+        mockUser,
+        { ...mockUser, id: 2, email: 'jane@example.com' },
+      ];
+      jest.spyOn(repository, 'find').mockResolvedValue(users);
+
+      const result = await service.findAll();
+
+      // ✅ Specific assertions
+      expect(result).toHaveLength(2);
+      expect(result[0].email).toBe('john@example.com');
+      expect(result[1].email).toBe('jane@example.com');
+    });
+
+    it('should return empty array when no users exist', async () => {
+      jest.spyOn(repository, 'find').mockResolvedValue([]);
+      const result = await service.findAll();
+      expect(result).toEqual([]);
+    });
+
+    it('should throw error when repository fails', async () => {
+      jest.spyOn(repository, 'find').mockRejectedValue(new Error('DB Error'));
+      await expect(service.findAll()).rejects.toThrow('DB Error');
+    });
   });
 
   it('should return user by ID', async () => {
@@ -120,7 +142,7 @@ describe('UsersService', () => {
   // ✅ BONUS: Test error cases
   it('should NOT create user if email verification fails', async () => {
     // Mock axios to fail (API down)
-    mockAxios.post.mockRejectedValue(new Error('API down'));
+    mockAxios.post.mockRejectedValue(new Error('API down')); // problem error
 
     await expect(
       service.create({

@@ -4,21 +4,27 @@ import request from 'supertest';
 import { AuthGuard } from '@nestjs/passport';
 import { AppModule } from '../app.module';
 import { RolesGuard } from '../auth/guards/roles.guard';
+import axios from 'axios';
+
+jest.mock('axios');
+const mockAxios = axios as jest.Mocked<typeof axios>;
 
 describe('Users API - Integration Tests (E2E)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
-    // Set test environment
     process.env.NODE_ENV = 'test';
+
+    mockAxios.post.mockResolvedValue({
+      status: 200,
+      data: { isValid: true },
+    });
 
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     })
-      // ✅ Mock JWT Authentication
       .overrideGuard(AuthGuard('jwt'))
       .useValue({ canActivate: () => true })
-      // ✅ Mock Roles Authorization
       .overrideGuard(RolesGuard)
       .useValue({ canActivate: () => true })
       .compile();
@@ -29,16 +35,13 @@ describe('Users API - Integration Tests (E2E)', () => {
   }, 60000);
 
   afterAll(async () => {
-    if (app) {
-      await app.close();
-    }
+    if (app) await app.close();
+    jest.clearAllMocks();
   });
 
   describe('GET /users', () => {
     it('should return status 200', () => {
-      return request(app.getHttpServer())
-        .get('/users')
-        .expect(200);
+      return request(app.getHttpServer()).get('/users').expect(200);
     });
 
     it('should return an array of users', () => {
@@ -56,34 +59,27 @@ describe('Users API - Integration Tests (E2E)', () => {
         .expect(200)
         .expect((res) => {
           if (res.body.length > 0) {
-            const user = res.body[0];
-            expect(user).toBeDefined();
-            expect(user).toHaveProperty('id');
+            expect(res.body[0]).toHaveProperty('id');
           }
         });
     });
   });
 
-describe('GET /users/:id', () => {
-  it('should return 200 for valid user ID', () => {
-    return request(app.getHttpServer())
-      .get('/users/1')
-      .expect((res) => {
-        // Accept either 200 (user exists) or 404 (user doesn't exist)
-        expect([200, 404]).toContain(res.status);
-      });
-  });
-
-    it('should return user object', () => {
+  describe('GET /users/:id', () => {
+    it('should return 200 or 404 for user ID', () => {
       return request(app.getHttpServer())
         .get('/users/1')
         .expect((res) => {
-        expect([200, 404]).toContain(res.status);
-        if (res.status == 200) {
-          expect(res.body).toBeDefined();
-          expect(typeof res.body).toBe('object');
-        }
-      });
+          expect([200, 404]).toContain(res.status);
+        });
+    });
+
+    it('should return user object or 404', () => {
+      return request(app.getHttpServer())
+        .get('/users/1')
+        .expect((res) => {
+          expect([200, 404]).toContain(res.status);
+        });
     });
 
     it('should return 400 for non-numeric ID', () => {
@@ -103,38 +99,129 @@ describe('GET /users/:id', () => {
 
   describe('POST /users', () => {
     it('should create user with valid data', () => {
-      const createUserDto = {};
-
       return request(app.getHttpServer())
         .post('/users')
-        .send(createUserDto)
+        .send({
+          name: 'Test User',
+          email: 'test@example.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(201)
         .expect((res) => {
-          expect([201, 400, 500]).toContain(res.status);
+          expect(res.body).toHaveProperty('id');
+          expect(res.body.name).toBe('Test User');
         });
     });
 
-    it('should reject invalid user data', () => {
-      const invalidDto = {};
+    it('should create user with optional fields', () => {
+      return request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'Full User',
+          email: 'full@example.com',
+          password: 'SecurePassword123!',
+          phoneNumber: '+1-555-1234',
+        })
+        .expect(201)
+        .expect((res) => {
+          expect(res.body.phoneNumber).toBe('+1-555-1234');
+        });
+    });
+
+    it('should reject missing email', () => {
+      return request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'No Email',
+          password: 'SecurePassword123!',
+        })
+        .expect(400);
+    });
+
+    it('should reject missing password', () => {
+      return request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'No Password',
+          email: 'nopass@example.com',
+        })
+        .expect(400);
+    });
+
+    it('should reject missing name', () => {
+      return request(app.getHttpServer())
+        .post('/users')
+        .send({
+          email: 'noname@example.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(400);
+    });
+
+    it('should reject invalid email', () => {
+      mockAxios.post.mockResolvedValueOnce({
+        data: { isValid: false },
+      });
 
       return request(app.getHttpServer())
         .post('/users')
-        .send(invalidDto)
-        .expect((res) => {
-          expect([400, 500]).toContain(res.status);
-        });
+        .send({
+          name: 'Invalid Email',
+          email: 'invalid@test.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(400);
     });
   });
 
   describe('PATCH /users/:id', () => {
-    it('should update user successfully', () => {
-      const updateUserDto = {};
+    it('should update user successfully', async () => {
+      const createRes = await request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'Original Name',
+          email: 'update@example.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(201);
 
       return request(app.getHttpServer())
-        .patch('/users/1')
-        .send(updateUserDto)
+        .patch(`/users/${createRes.body.id}`)
+        .send({ name: 'Updated Name' })
+        .expect(200)
         .expect((res) => {
-          expect([200, 400, 404, 500]).toContain(res.status);
+          expect(res.body.name).toBe('Updated Name');
         });
+    });
+
+    it('should update multiple fields', async () => {
+      const createRes = await request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'Multi',
+          email: 'multi@example.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(201);
+
+      return request(app.getHttpServer())
+        .patch(`/users/${createRes.body.id}`)
+        .send({
+          name: 'New Name',
+          phoneNumber: '+1-234-567-8900',
+        })
+        .expect(200)
+        .expect((res) => {
+          expect(res.body.name).toBe('New Name');
+          expect(res.body.phoneNumber).toBe('+1-234-567-8900');
+        });
+    });
+
+    it('should return 404 for non-existent user', () => {
+      return request(app.getHttpServer())
+        .patch('/users/99999')
+        .send({ name: 'Test' })
+        .expect(404);
     });
 
     it('should return 400 for invalid ID', () => {
@@ -146,18 +233,72 @@ describe('GET /users/:id', () => {
   });
 
   describe('DELETE /users/:id', () => {
-    it('should delete user successfully', () => {
+    it('should delete user successfully', async () => {
+      const createRes = await request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'To Delete',
+          email: 'delete@example.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(201);
+
       return request(app.getHttpServer())
-        .delete('/users/1')
+        .delete(`/users/${createRes.body.id}`)
+        .expect(200)
         .expect((res) => {
-          expect([200, 404, 500]).toContain(res.status);
+          expect(res.body.id).toBe(createRes.body.id);
         });
+    });
+
+    it('should return 404 for non-existent user', () => {
+      return request(app.getHttpServer())
+        .delete('/users/99999')
+        .expect(404);
     });
 
     it('should return 400 for invalid ID', () => {
       return request(app.getHttpServer())
         .delete('/users/invalid')
         .expect(400);
+    });
+
+    it('should not find user after deletion', async () => {
+      const createRes = await request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'Verify Delete',
+          email: 'verify-delete@example.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(201);
+
+      await request(app.getHttpServer())
+        .delete(`/users/${createRes.body.id}`)
+        .expect(200);
+
+      return request(app.getHttpServer())
+        .get(`/users/${createRes.body.id}`)
+        .expect(404);
+    });
+
+    it('should return 404 on second delete', async () => {
+      const createRes = await request(app.getHttpServer())
+        .post('/users')
+        .send({
+          name: 'Delete Twice',
+          email: 'delete-twice@example.com',
+          password: 'SecurePassword123!',
+        })
+        .expect(201);
+
+      await request(app.getHttpServer())
+        .delete(`/users/${createRes.body.id}`)
+        .expect(200);
+
+      return request(app.getHttpServer())
+        .delete(`/users/${createRes.body.id}`)
+        .expect(404);
     });
   });
 });

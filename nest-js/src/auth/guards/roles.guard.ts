@@ -7,13 +7,20 @@ export class RolesGuard implements CanActivate {
 
   canActivate(context: ExecutionContext): boolean {
     const requiredRoles = this.reflector.get<string[]>('roles', context.getHandler());
-    if (!requiredRoles) return true;
-
-    const { user } = context.switchToHttp().getRequest();
     
-    // Roles are stored under your custom namespace claim
-    const userRoles = user['https://user-login.com/roles'] ?? [];
+    if (!requiredRoles) {
+      return true;
+    }
 
-    return requiredRoles.some(role => userRoles.includes(role));
+    const request = context.switchToHttp().getRequest();
+    const user = request.user;
+
+    // ✅ FIX: Add null check
+    if (!user) {
+      return false;
+    }
+
+    // ✅ Use simple role property
+    return requiredRoles.includes(user.role);
   }
 }

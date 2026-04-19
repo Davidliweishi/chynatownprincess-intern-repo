@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): { message: string } {
-    return { message: 'Hello from NestJS!' };
+    return { message: 'Hello World!' };
   }
 
   @Get('health')

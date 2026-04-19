@@ -1,6 +1,13 @@
 import 'dotenv/config';
 import { Exclude } from 'class-transformer';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  Index,
+} from 'typeorm';
 import { EncryptionTransformer } from 'typeorm-encrypted';
 
 // Load encryption key from .env at runtime
@@ -31,6 +38,18 @@ export class UserEntity {
   @Column({ unique: true })
   email!: string;
 
+  @Column({ default: 'user' })
+  role: string;
+
+  @Column({ type: 'varchar', length: 20, nullable: true })
+  phoneNumber?: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
   @Exclude()
   @Column({
     type: 'text',
@@ -47,13 +66,6 @@ export class UserEntity {
     transformer: createEncryptionTransformer(),
   })
   secretNote!: string | null;
-
-  @Column({
-    type: 'varchar',
-    nullable: true,
-    transformer: createEncryptionTransformer(),
-  })
-  phoneNumber!: string | null;
 
   constructor(partial: Partial<UserEntity>) {
     Object.assign(this, partial);
