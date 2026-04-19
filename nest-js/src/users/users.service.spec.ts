@@ -1,9 +1,15 @@
+jest.mock('axios');
+
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { NotFoundException } from '@nestjs/common';
+import { NotFoundException, BadRequestException } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UserEntity } from './entities/user.entity';
+import axios from 'axios';
+
+// ✅ Type the axios mock
+const mockAxios = axios as jest.Mocked<typeof axios>;
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -26,6 +32,7 @@ describe('UsersService', () => {
       providers: [
         UsersService,
         {
+          // this here means you are testing a repository
           provide: getRepositoryToken(UserEntity),
           useValue: {
             create: jest.fn(),
@@ -47,8 +54,14 @@ describe('UsersService', () => {
 
   afterEach(() => jest.clearAllMocks());
 
-  //Unit tests
+  // ✅ UPDATED: Now mocks axios for email verification
   it('should create a user', async () => {
+    // ← ADD THIS: Mock axios.post for email verification
+    mockAxios.post.mockResolvedValue({
+      data: { isValid: true }, // Email is valid
+    });
+
+    // example of dependency mocking right here
     jest.spyOn(repository, 'create').mockReturnValue(mockUser);
     jest.spyOn(repository, 'save').mockResolvedValueOnce(mockUser);
 
@@ -58,6 +71,7 @@ describe('UsersService', () => {
       password: 'password123',
     });
 
+    // WITH mocking (returns fake data)
     expect(result).toEqual(mockUser);
   });
 
@@ -101,5 +115,40 @@ describe('UsersService', () => {
 
     const result = await service.remove(1);
     expect(result).toEqual(mockUser);
+  });
+
+  // ✅ BONUS: Test error cases
+  it('should NOT create user if email verification fails', async () => {
+    // Mock axios to fail (API down)
+    mockAxios.post.mockRejectedValue(new Error('API down'));
+
+    await expect(
+      service.create({
+        email: 'test@example.com',
+        name: 'Test User',
+        password: 'password123',
+      }),
+    ).rejects.toThrow(BadRequestException);
+
+    // Verify repository.save was NOT called
+    expect(repository.save).not.toHaveBeenCalled();
+  });
+
+  it('should NOT create user if email is invalid', async () => {
+    // Mock axios to say email is invalid
+    mockAxios.post.mockResolvedValue({
+      data: { isValid: false },
+    });
+
+    await expect(
+      service.create({
+        email: 'invalid@example.com',
+        name: 'Test User',
+        password: 'password123',
+      }),
+    ).rejects.toThrow(BadRequestException);
+
+    // Verify repository.save was NOT called
+    expect(repository.save).not.toHaveBeenCalled();
   });
 });
