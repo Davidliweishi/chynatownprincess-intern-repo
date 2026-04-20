@@ -1,0 +1,27 @@
+meta {
+  name: Users
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:3001/auth/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "admin@example.com",
+    "password": "anything"
+  }
+}
+
+vars:pre-request {
+  jwtToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaWF0IjoxNzc2NjYxODU0LCJleHAiOjE3NzY2NjU0NTR9.wULg0dV-LXtDR9eaU48ea0N3zRLBQk5qxdtB9AJRT9Q
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

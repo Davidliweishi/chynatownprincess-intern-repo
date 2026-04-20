@@ -5,10 +5,9 @@ async function seed() {
   await AppDataSource.initialize();
 
   const repo = AppDataSource.getRepository(UserEntity);
-
   await repo.save([
-    { name: 'David', email: 'david@test.com' },
-    { name: 'Alice', email: 'alice@test.com' },
+    { name: 'David', email: 'david@test.com', password: 'password1234' },
+    { name: 'Alice', email: 'alice@test.com', password: 'password1234' },
   ]);
 
   await AppDataSource.destroy();

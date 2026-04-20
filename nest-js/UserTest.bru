@@ -1,0 +1,24 @@
+meta {
+  name: UserTest
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://localhost:3001/users
+  body: none
+  auth: bearer
+}
+
+headers {
+  Authorization: BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlcyI6WyJhZG1pbiIsInVzZXIiXSwiaWF0IjoxNzc2NjYxMjUzLCJleHAiOjE3NzY2NjQ4NTN9.dJbWcz8VAcSdTj2n3cYmw4zIlmUOc4Y8LEnpBvSg1CI
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGVzIjpbImFkbWluIiwidXNlciJdLCJpYXQiOjE3NzY2NjI0NTYsImV4cCI6MTc3NjY2NjA1Nn0.OX9KDBXL8pj5oT-jKXv_Y69txGWqAsCCPllwKaO6fGg
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
