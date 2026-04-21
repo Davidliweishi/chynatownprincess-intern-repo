@@ -161,3 +161,74 @@ How does a clear commit message help in team collaboration?
 How can poor commit messages cause issues later?
 
 Commit and push your changes to GitHub.
+
+***
+
+## 📌 Creating & Reviewing Pull Requests
+
+**🎯 Goal**
+**Learn how to create, review, and collaborate on Pull Requests (PRs) in GitHub.*
+
+# ✅ Tasks
+
+**Research what a Pull Request (PR) is and why it’s used.**
+
+Pull Request = a formal way to submit code changes to a software project. It is a request sent by a contributor to a repository manager/platform (in most cases Github) to review betfore merging the code changes into the main codebase. 
+
+**Create a new branch in your Git desktop client.**
+
+<img width="553" height="164" alt="Image" src="https://github.com/user-attachments/assets/0cb288f9-0b31-4cee-b7c8-e83d37e52824" />
+
+
+**Make a small change and push the branch to GitHub.**
+
+<img width="1275" height="290" alt="Image" src="https://github.com/user-attachments/assets/e645a320-14d6-40ad-a4d8-1d6aa942c1c3" />
+
+
+**Open a Pull Request on GitHub:**
+**Add a meaningful PR title and description.**
+
+<img width="1496" height="897" alt="Image" src="https://github.com/user-attachments/assets/3e1cb3dc-d977-43e8-a86c-4e50d2cd01d3" />
+
+Link to a related issue (if applicable).
+
+**Review an existing PR in a public open-source repo (e.g., React PRs):**
+
+**Read through comments and discussions.**
+<img width="1496" height="897" alt="Image" src="https://github.com/user-attachments/assets/51686341-70a9-4015-852f-77353fa4629c" />
+
+
+**Observe how changes are requested and approved.**
+
+The Process:
+
+* Code review
+- Multiple review from the Facebook/React team
+- This can be seen through "CLA signed" 
+- There are several workflow checks that await approval
+- Human reviewers leave comments and suggestions in the conversation box
+
+
+# Write reflections in git_understanding.md:
+
+**Why are PRs important in a team workflow?*
+
+PRs are important as they help regulate and review your code before it can be merged into the main codebase. It allows for extra security and scrutiny, as it makes sure your code is properly maintained and bug-free so that it doesn't potentially cause issues for the rest of the codebase. 
+
+**What makes a well-structured PR?*
+
+A good PR is small, descriptive and focused. It should be designed to faciliate quick review, rather than a long one. It must feature a clear title, a detailed desciption of what and why something happened. Ideally, it should include relevant tests, linked issue numbers, and follows a consistent template in accordance to your work team. 
+
+
+**What did you learn from reviewing an open-source PR?*
+
+REviewing open-source PRs allowed me to understand that context and clear communication matters. Both factors contribute towards clarity and easy maintainance of code. Without this, work becomes convoluted and confusing. This would slow down progress and make it harder for yourslef and your team to provide meaningful work. 
+
+
+Request feedback on your PR from a peer or mentor.
+
+Done
+
+Merge the PR (if approved) and delete the branch.
+
+Done
