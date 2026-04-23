@@ -369,3 +369,6 @@ The hardest thing was actually figuring out that I'm not necessarily running tes
 <img width="820" height="128" alt="Image" src="https://github.com/user-attachments/assets/16b16751-8933-4551-ac42-f1f7baf5737b" />
 
 I'll need to work on this and standardise my approach to utilising both React and NestJS in relations to Jest tests. 
+
+***
+

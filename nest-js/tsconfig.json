@@ -3,15 +3,16 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "declaration": true,
+    "declaration": true, //enable source maps
+    "declarationMap": true, //also for declearation files
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "ES2021",
     "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "./dist", //output to dist folder
+    "rootDir": "./src", //read from src folder
     "incremental": false,
     "skipLibCheck": true,
     "strictNullChecks": false,

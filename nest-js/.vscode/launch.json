@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "NestJS Debug (Launch)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:debug"],
+      "console": "integratedTerminal",
+      "sourceMaps" : true,                   // Enable source maps so debugger and App can understand eachother
+      "outFiles" : [
+        "$[workspac${extensionInstallFolder}/dist/**/*.js"  // Location where compiled code is
+      ]  
+    },
+    {
+      "name": "NestJS Debug (Attach)",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "line-length": false,
+    "no-hard-tabs": false,
+    "no-multiple-spaces": false
+  }
+}
