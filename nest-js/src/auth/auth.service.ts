@@ -85,7 +85,7 @@ export class AuthService {
     const newUser = {
       id: Math.random().toString(),
       email: userData.email,
-      username: userData.username,
+      name: userData.name,
       roles: ['user'],
     };
 
@@ -125,7 +125,7 @@ export class AuthService {
       user: {
         id: newUser.id,
         email: newUser.email,
-        username: newUser.username,
+        name: newUser.name,
       },
       access_token: accessToken,
       refresh_token: refreshToken,

@@ -1,5 +1,5 @@
 // src/app.module.ts
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import * as path from 'path';
@@ -8,7 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guards/jwt.auth.guard';
 import { TestModule } from './test/test.module';
-
+import { LoggerMiddleware } from './common/middleware/logger.middleware';  // ← Add import
 
 @Module({
   imports: [
@@ -20,7 +20,6 @@ import { TestModule } from './test/test.module';
     TypeOrmModule.forRoot(
       process.env.NODE_ENV === 'test'
         ? {
-            // ✅ TESTING: Use SQLite in-memory database (no setup needed!)
             type: 'sqlite',
             database: ':memory:',
             entities: [path.join(__dirname, '**/*.entity{.ts,.js}')],
@@ -29,7 +28,6 @@ import { TestModule } from './test/test.module';
             dropSchema: true,
           }
         : {
-            // Production/Development: Use PostgreSQL
             type: 'postgres',
             host: process.env.DB_HOST || 'localhost',
             port: parseInt(process.env.DB_PORT || '5432', 10),
@@ -45,9 +43,7 @@ import { TestModule } from './test/test.module';
     ),
     
     TestModule,
-
     UsersModule,
-    
     AuthModule,
   ],
 
@@ -58,5 +54,10 @@ import { TestModule } from './test/test.module';
     }
   ]
 })
-
-export class AppModule {}
+export class AppModule implements NestModule {  // ← Add NestModule
+  configure(consumer: MiddlewareConsumer) {    // ← Add configure method
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes('*');  // Apply to all routes
+  }
+}

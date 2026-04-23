@@ -1,85 +1,63 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { Injectable, Logger } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserEntity } from './entities/user.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import axios from 'axios';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
-  private emailVerificationApi = 'https://api.emailverify.com/verify';
+  private readonly logger = new Logger(UsersService.name);
 
   constructor(
     @InjectRepository(UserEntity)
-    private userRepository: Repository<UserEntity>,
+    private usersRepository: Repository<UserEntity>,
   ) {}
 
-  // CREATE
-  async create(createUserDto: CreateUserDto): Promise<UserEntity> {
-    try {
-      // STEP 1. verify the email 
-      const response = await axios.post(this.emailVerificationApi, {
-        email: createUserDto.email,
-      });
+async create(createUserDto: CreateUserDto) {
+  this.logger.log('UsersService.create called');
+  this.logger.log('Received DTO:', JSON.stringify(createUserDto));
 
-      // STEP 2. Check if the email is valid 
-      if (!response.data || !response.data.isValid) {
-        throw new BadRequestException('Email is invalid');
-      }
+  try {
+    this.logger.log('Creating user entity');
+    const user = new UserEntity({
+      email: createUserDto.email,
+      name: createUserDto.name,
+      password: createUserDto.password,
+    });
 
-      // STEP 3. create user in memory
-      const user = this.userRepository.create(createUserDto);
+    this.logger.log('User entity created:', JSON.stringify(user));
+    this.logger.log('Attempting to save to database');
+    
+    const result = await this.usersRepository.save(user);
+    
+    this.logger.log('User saved successfully:', JSON.stringify(result));
+    return result;
+  } catch (error: any) {
+    this.logger.error('Service error:', error.message);
+    this.logger.error('Full service error:', JSON.stringify(error));
+    throw error;
+  }
+}
 
-      // STEP 4. save to database and return
-      return await this.userRepository.save(user);
-    } catch (error) {
-      if (error instanceof BadRequestException) {
-        throw error;
-      }
+  async findAll() {
+    return this.usersRepository.find();
+  }
 
-      const message = error instanceof Error ? error.message : 'Email verification failed';
-      throw new BadRequestException(
-      );
+  async findOne(id: number) {
+    return this.usersRepository.findOneBy({ id });
+  }
+
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    await this.usersRepository.update(id, updateUserDto);
+    return this.usersRepository.findOneBy({ id });
+  }
+
+  async remove(id: number) {
+    const user = await this.usersRepository.findOneBy({ id });
+    if (user) {
+      await this.usersRepository.delete(id);
     }
-  }
-
-  async verifyEmail(email: string): Promise<boolean> {
-    try {
-      const response = await axios.post(this.emailVerificationApi, {
-        email,
-      });
-      return response.data.isValid;
-    } catch (error) {
-      throw new BadRequestException('Email verification failed');
-    }
-  }
-
-  // READ ALL
-  async findAll(): Promise<UserEntity[]> {
-    return await this.userRepository.find();
-  }
-
-  // READ ONE
-  async findOne(id: number): Promise<UserEntity> {
-    const user = await this.userRepository.findOneBy({ id });
-    if (!user) {
-      throw new NotFoundException(`User #${id} not found`);
-    }
-    return user;
-  }
-
-  // UPDATE
-  async update(id: number, updateUserDto: UpdateUserDto): Promise<UserEntity> {
-    await this.findOne(id); // Check if user exists first
-    await this.userRepository.update(id, updateUserDto);
-    return await this.userRepository.findOneBy({ id });
-  }
-
-  // DELETE
-  async remove(id: number): Promise<UserEntity> {
-    const user = await this.findOne(id); // Check if exists
-    await this.userRepository.delete(id);
     return user;
   }
 }
